@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aquaesu.webprj.dao.WikiDao">
+  <select id="getWiki" resultType="com.aquaesu.webprj.vo.Wiki">
+    SELECT * FROM 
+      (SELECT 
+      ROW_NUMBER() OVER
+           (ORDER BY Wsubject DESC) NUM,Wiki.* FROM Wiki 
+           WHERE ${param2} LIKE '%${param3}%' 
+        )A 
+        WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
+  </select>
+</mapper>

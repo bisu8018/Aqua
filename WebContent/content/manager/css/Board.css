@@ -1,0 +1,30 @@
+@CHARSET "UTF-8";
+
+#header
+{
+	flaot:left;
+	min-height:200px;
+}
+#logo
+{	
+	float:left;
+	width:60px;
+	height:60px;
+}
+#list
+{	
+	position:absolute;
+	float:left;
+	left:200px;
+	top:80px;
+	width:200px;
+	height:100px;
+}
+#a
+{
+	position:absolute;
+	float:left;
+	left:300px;
+	top:300px;
+	
+}

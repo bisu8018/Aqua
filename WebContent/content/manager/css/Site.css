@@ -1,0 +1,45 @@
+
+
+#header
+{
+	flaot:left;
+	min-height:200px;
+}
+#logo
+{	
+	float:left;
+	width:60px;
+	height:60px;
+}
+#list
+{	
+	position:absolute;
+	float:left;
+	left:200px;
+	top:80px;
+	width:200px;
+	height:100px;
+}
+#table
+{	
+	position:absolute;
+	float:left;
+	top:350px;
+	left:80px;
+	
+}
+#Alter
+{
+	position:absolute;
+	float:left;
+	top:600px;
+	left:80px;
+}
+#footer
+{
+	position:absolute;
+	float:left;
+	top:800px;
+	left:450px;
+	
+}

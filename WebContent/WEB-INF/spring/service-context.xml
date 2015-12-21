@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+   xmlns:context="http://www.springframework.org/schema/context"
+   xmlns:mvc="http://www.springframework.org/schema/mvc"   
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd 
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc
+        http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+  
+  <bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+           <property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver"/>
+           <property name="url" value="jdbc:sqlserver://211.238.142.251:1433;databaseName=aquadb"/>
+           <property name="username" value="aqua"/>
+           <property name="password" value="aqua5959"/>               
+ </bean>            
+  
+  <bean name="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+    <property name="dataSource" ref="dataSource"/>
+    <property name="mapperLocations"
+             value="classpath:com/aquaesu/webprj/dao/mybatis/mapper/*.xml"/>
+ </bean>     
+ 
+ <bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate">
+    <constructor-arg index="0" ref="sqlSessionFactory"></constructor-arg>
+ </bean>
+
+
+<bean name="MembersDao"
+  class="com.aquaesu.webprj.dao.mybatis.MyBatisMembersDao"/>  
+ 
+ <bean name="SiteDao"
+  class="com.aquaesu.webprj.dao.mybatis.MyBatisSiteDao"/>
+ 
+         
+   <bean name="BoardDao"
+  class="com.aquaesu.webprj.dao.mybatis.MyBatisBoardDao"/>
+  </beans>
+ 
