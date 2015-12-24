@@ -1,0 +1,194 @@
+@CHARSET "UTF-8";
+html, body {
+   height: 100%;
+   width: 100%;
+   overflow: hidden;
+   background: url('bg.jpg') no-repeat -10px -10px;
+   background-attachment: fixed;
+   background-repeat: repeat-xy;
+}
+#bg1-2{
+   background: url('bg1-2.png') no-repeat 650px 550px;
+   background-size: 500px 500px;
+   width: 100%;
+   height: 100%;
+   position: absolute;
+}
+
+#icon2{
+	background: url('icon2.png') no-repeat 80px 5px;
+	 float:none;
+	 width: 100%;
+     height: 100%;
+     position: absolute;
+	
+}
+
+#icon4{
+	background: url('icon4.png') no-repeat 10px 680px;
+	 float:none;
+	 width: 100%;
+     height: 100%;
+     position: absolute;
+	
+}
+
+#music{
+	background: url('music.png') no-repeat 5px 65px;
+	 float:none;
+	 width: 100%;
+     height: 100%;
+     position: absolute;
+	
+}
+
+#beta{
+   background: url('beta.png') no-repeat 650px 550px;
+   background-size: 660px 440px;
+   width: 100%;
+   height: 100%;
+   position: absolute;
+}
+
+header {
+   height: 5%;
+   
+}
+
+#body {
+   height: 80%;
+   width: 100%;
+   
+}
+
+#left-body {
+   height: 100%;
+   width: 10%; 
+   float: left;
+   background: url('menu-icon.png') no-repeat -10px 0px;
+   cursor: pointer;
+   background-size: 2% 2%;
+}
+
+#center-body {
+   height: 100%;
+   width: 80%;
+   float: left;
+}
+
+#right-body {
+   height: 100%;
+   width: 10%;
+   float: left;
+}
+
+#menu{
+   height: 72%;
+   width: 76%;
+   position: absolute;
+   background: red;
+   margin: 2%;
+   
+}
+
+#menu1{
+   height: 100%;
+   width: 65%;
+   float: left;
+   
+   
+} 
+#menu1-1{
+   height: 70%;
+   width: 100%;
+   
+   background: aqua;
+   
+}
+#menu1-2{
+   height: 28.5%;
+   width: 100%;
+   
+   background: aqua;
+   border-top:10px dashed black;
+   
+}
+
+
+#menu1-1-1{
+   height: 100%;
+   width: 100%;
+   float: left;
+   background: yellow;
+   
+   
+  
+ 
+  
+   
+   
+}
+ #menu1-1-2{
+   height: 100%;
+   width: 50%;
+   float: left;
+   background: gray no-repeat ;
+   border-right:10px dashed black;
+ 
+  
+  
+   
+   
+   
+} 
+#menu2{
+   height: 100%;
+   width: 35%;
+   float: left;
+   background: black;
+   
+   
+}
+#menu2-1{
+   height: 100%;
+   width: 97%;
+   border-left:10px dashed black;
+   background: #80ff00;
+   
+   
+}
+
+
+
+
+
+
+footer {
+   height: 15%;
+   width: 100%;
+}
+
+#left-footer {
+   height: 100%;
+   width: 19%;
+   float: left;
+   cursor: pointer;
+}
+#center-footer {
+   height: 100%;
+   width: 62%;
+   float: left;
+   text-align: center;
+}
+#right-footer {
+   height: 100%;
+   width: 19%;
+   float: left;
+}
+#ws{
+   background: url('ws.png') no-repeat;
+   background-size: 80% 78%;
+   position: absolute;
+   height: 100%;
+   width: 100%
+}

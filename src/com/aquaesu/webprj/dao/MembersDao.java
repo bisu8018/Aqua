@@ -6,7 +6,7 @@ import java.util.List;
 import com.aquaesu.webprj.vo.Members;
 
 public interface MembersDao {
-	public Members getMember(String email) throws SQLException;
+	public Members getMembers(String email) throws SQLException;
 	public List<Members> getMembers() throws SQLException;
 	public List<Members> getMembers(int page) throws SQLException;
 	public List<Members> getMembers(int page, String field, String query) throws SQLException;
@@ -17,3 +17,5 @@ public interface MembersDao {
 	
 
 }
+
+

@@ -1,3 +1,5 @@
 eclipse.preferences.version=1
-encoding//WebContent/WEB-INF/views/manager/site.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/bowl/bowl.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/manager/sitemanager.jsp=UTF-8
+encoding//WebContent/WEB-INF/views/menu/Menu.jsp=UTF-8
 encoding//src/com/aquaesu/webprj/controllers/ManagerController.java=UTF-8

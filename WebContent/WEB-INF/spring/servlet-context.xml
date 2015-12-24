@@ -12,7 +12,8 @@
    <context:component-scan base-package="package com.aquaesu.webprj.controllers"/>
 
    <mvc:annotation-driven />
-   <mvc:resources location="/content/" mapping="/content/**"></mvc:resources>
+ <mvc:resources location="/content/" mapping="/content/**"></mvc:resources> 
+
    <!-- /content/**안에 모든것은 /content에서 찾아라 -->
    <!-- 기본resolve -->
 
@@ -23,7 +24,7 @@
    </bean> -->
   <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver"> 
       <property name="prefix" value="/WEB-INF/views/"> </property>
-      <property name="suffix"    value=".jsp"></property>
+      <property name="suffix" value=".jsp"></property>
       </bean>
 <!-- service -->
 </beans>

@@ -12,15 +12,19 @@
         )A 
         WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
   </select>
+  
     <update id="update">      
         <!-- UPDATE MEMBERS SET NAME = #{param1.name},WHERE MID = #{param1.mid}-->
-        UPDATE MEMBERS SET bpwd= #{bpwd} WHERE email= #{email}
-                             
+        UPDATE MEMBERS SET bpwd = #{bpwd} WHERE email=#{email}                             
    </update>
+   
    <delete id="delete">
         DELETE FROM MEMBERS WHERE email = #{email}
    </delete>
+   
    <insert id="insert">
-        INSERT INTO MEMBERS(email, bpwd, age, sex, nation) VALUES(#{email},#{bpwd},#{age},#{sex},#{nation})
+        INSERT INTO MEMBERS(email, bpwd, age, sex, nation)
+        VALUES(#{email},#{bpwd},#{age},#{sex},#{nation})
      </insert> 
+     
 </mapper>

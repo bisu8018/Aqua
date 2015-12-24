@@ -1,0 +1,174 @@
+@CHARSET "UTF-8";
+
+html, body {
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+	background: url('bg1.jpg') no-repeat -10px -10px;
+	background-attachment: fixed;
+	background-repeat: repeat-xy;
+	z-index: -100;
+	position: absolute;
+}
+
+#beta {
+	background: url('beta.png') no-repeat 0px 200px;
+	background-size: 550px 450px;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	z-index: -90;
+}
+
+header {
+	height: 5%;
+}
+
+#body {
+	height: 80%;
+	width: 100%;
+}
+
+#left-body {
+	height: 100%;
+	width: 20%;
+	float: left;
+	background: url('menu-icon.png') no-repeat -10px 0px;
+	
+	background-size: 2% 2%;
+}
+
+#center-body {
+	height: 100%;
+	width: 60%;
+	float: left;
+}
+
+#ws {
+	background: url('ws1.png') no-repeat;
+	background-size: 60% 78%;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index: -80;
+}
+
+#right-body {
+	height: 100%;
+	width: 20%;
+	float: left;
+}
+
+footer {
+	height: 15%;
+	width: 100%;
+}
+
+#left-footer {
+	height: 100%;
+	width: 19%;
+	float: left;
+	
+}
+
+#center-footer {
+	height: 100%;
+	width: 62%;
+	float: left;
+	text-align: center;
+}
+
+#right-footer {
+	height: 100%;
+	width: 19%;
+	float: left;
+}
+
+#up {
+	margin-top: 1%;
+	margin-left: 1%;
+	margin-right: 2%;
+	width: 98%;
+	height: 48%;
+}
+
+#down {
+	width: 98%;
+	height: 47%;
+	margin-left: 1%;
+	margin-right: 2%;
+}
+
+#up-right {
+	width: 50%;
+	height: 100%;
+	background: url("g.png") no-repeat -35px 22px;
+	background-size: 380px 310px;
+	float: left;
+	background-size: 380px 310px;
+}
+
+#up-left {
+	width: 50%;
+	height: 100%;
+	background: url("b.png") no-repeat -35px 22px;
+	background-size: 415px 310px;
+	float: left;
+	background-size: 415px 310px;
+}
+
+#down-right {
+	width: 50%;
+	height: 100%;
+	background: url("o.png") no-repeat -32px 19px;
+	background-size: 388px 310px;
+	float: left;
+}
+
+#down-left {
+	width: 50%;
+	height: 100%;
+	background: url("r.png") no-repeat 9px 20px;
+	background-size: 333px 310px;
+	float: left;
+	background-size: 333px 310px;
+}
+#login{
+	
+	background: url('l.jpg') no-repeat center;
+	 float:left;
+	 width: 50px;
+     height: 50px;
+     left:220px;
+     top:100px;
+     position: absolute;
+}
+#logout
+{
+	background: url('icon1.png') no-repeat center;
+	 float:left;
+	 width: 50px;
+     height: 50px;
+     left:220px;
+     top:100px;
+     position: absolute;
+}
+#my{
+	
+	background: url('icon3.png') no-repeat center;
+	 float:left;
+	 width: 50px;
+     height: 50px;
+     left:220px;
+     top:150px;
+     position: absolute;
+}
+#home{
+	background: url('icon2.png') no-repeat center;
+	 float:left;
+	 width: 50px;
+     height: 50px;
+     left:220px;
+     top:50px;
+     position: absolute;
+}
