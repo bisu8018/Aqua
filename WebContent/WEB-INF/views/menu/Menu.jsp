@@ -43,7 +43,9 @@
 						<a href="wiki"><div id="down-right"></div></a>
 				</div>			
 		</div>
-		<div id="right-body"></div>
+		<div id="right-body">
+		<div id="tab"></div>
+		</div>
 	</div>
 	<footer>
 

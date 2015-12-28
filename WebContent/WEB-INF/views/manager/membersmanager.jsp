@@ -7,6 +7,25 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	window.onload = function() {
+		var member = document.getElementById("member");
+		var rowcopy = document.querySelector("input[value='삭제']");
+		rowcopy.onclick = function() {
+			alert("행 복제");
+		}
+		var rowadd = document.querySelector("input[value='등록']");
+		rowadd.onclick = function() {
+
+			var template = document.querySelector("#member-row");
+			var clone = document.importNode(template.content, true);
+
+			member.querySelector("tbody").appendChild(clone);
+
+		}
+
+	}
+</script>
 <link
 	href="${pageContext.request.contextPath}/content/manager/css/Members.css"
 	type="text/css" rel="stylesheet" />
@@ -39,7 +58,7 @@
 
 	<div id="table">
 
-		<table>
+		<table id="member">
 
 			<thead>
 				<tr>
@@ -76,9 +95,11 @@
 					</select></th>
 					<th>EDIT</th>
 			</thead>
+
 			<tbody>
+
 				<c:forEach var="m" items="${list}">
-					<form action="" method="post">
+					<form name="form1" action="" method="post">
 					<tr>
 						<td><input type="checkbox" name="checkbox1" value="1">
 						</td>
@@ -92,14 +113,34 @@
 						<td><input type="text"></td>
 						<td><input type="submit" value="Edit"></td>
 					</tr>
+					<form name="form2" action="" method="post">
+						<template id="member-row">
+						<tr>
+							<td><input type="checkbox" name="checkbox1" value="1">
+							</td>
+							<td>1</td>
+							<td><input type="text" name="email"></td>
+							<td><input type="text" name="bpwd"></td>
+							<td><input type="text" name="sex"></td>
+							<td><input type="text" name="age"></td>
+							<td><input type="text" name="nation"></td>
+							<td>2015/09/11</td>
+							<td><input type="text"></td>
+							<td><input type="submit" value="Edit"></td>
+						</tr>
+						</template>
+					</form>
 					</form>
 				</c:forEach>
+
+
+
 			</tbody>
 		</table>
 	</div>
 	<div id="Alter">
-		<input type="button" value="DELETE"> <a href="membersEdit"><input
-			type="button" value="REGIST"></a>
+		<input type="button" value="삭제"> <input type="button"
+			value="등록">
 	</div>
 
 

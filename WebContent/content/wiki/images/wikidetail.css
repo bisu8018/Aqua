@@ -1,0 +1,75 @@
+@CHARSET "UTF-8";
+
+#search input[type='submit']{
+	background: url('그림1.jpg') no-repeat center;
+	text-indent:-999px; /* 글자 밀어내기 */
+	float:left;
+	border:0px;
+	width:50px;
+	height:50px;
+		
+}
+#header {
+	float:left;
+	height:55px;
+	width:100%;
+	background:#FFDE6B;	
+}
+#s{	
+	position:absolute;
+	float:left;
+	left:10px;
+	top:10px;
+	width:300px;
+	height:30px;
+	
+	line-height:30px;
+	font-weight: bold;
+	text-indent: 5px;
+}
+#body{
+	float:left;
+	background:#FFD016;
+	width:100%;
+	height:1300px;
+}
+#b
+{
+	position:absolute;
+	float:left;
+	left:320px;
+	top:10px;
+	width:50px;
+	height:34px;
+	background:url('그림1.jpg') no-repeat center;
+	background-size:50px 34px;
+	text-indent:-999px; /* 글자 밀어내기 */
+	cursor:pointer;
+	border:1px solid black;
+		
+}
+#w
+{
+	position:absolute;
+	float:left;
+	left:375px;
+	top:10px;
+	width:50px;
+	height:34px;
+	background:url('그림2.png') no-repeat center;
+	background-size:50px 34px;
+	text-indent:-999px; /* 글자 밀어내기 */
+	cursor:pointer;
+	border:1px solid black;
+}
+#one
+{	
+	position:absolute;
+	float:left;
+	left:220px;
+	top:130px;
+	background:white;
+	width:830px;
+	height:150px;
+}
+

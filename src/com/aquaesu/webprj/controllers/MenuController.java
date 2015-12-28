@@ -35,4 +35,6 @@ public class MenuController {
 	{
 		return "wiki/wiki";
 	}
+
+	
 }

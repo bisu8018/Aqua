@@ -12,8 +12,8 @@ html, body {
 }
 
 #beta {
-	background: url('beta.png') no-repeat 0px 200px;
-	background-size: 550px 450px;
+	background: url('beta.png') no-repeat 0px 450px;
+	background-size: 600px 500px;
 	width: 100%;
 	height: 100%;
 	position: absolute;
@@ -33,9 +33,7 @@ header {
 	height: 100%;
 	width: 20%;
 	float: left;
-	background: url('menu-icon.png') no-repeat -10px 0px;
 	
-	background-size: 2% 2%;
 }
 
 #center-body {
@@ -102,26 +100,24 @@ footer {
 #up-right {
 	width: 50%;
 	height: 100%;
-	background: url("g.png") no-repeat -35px 22px;
-	background-size: 380px 310px;
+	background: url("g.png") no-repeat -35px 23px;
+	background-size: 380px 313px;
 	float: left;
-	background-size: 380px 310px;
 }
 
 #up-left {
 	width: 50%;
 	height: 100%;
-	background: url("b.png") no-repeat -35px 22px;
-	background-size: 415px 310px;
+	background: url("b.png") no-repeat -30px -10px;
+	background-size: 415px 370px;
 	float: left;
-	background-size: 415px 310px;
 }
 
 #down-right {
 	width: 50%;
 	height: 100%;
-	background: url("o.png") no-repeat -32px 19px;
-	background-size: 388px 310px;
+	background: url("o.png") no-repeat -14px -2px;
+	background-size: 390px 367px;
 	float: left;
 }
 
@@ -135,40 +131,55 @@ footer {
 }
 #login{
 	
-	background: url('l.jpg') no-repeat center;
+	background: url('in.png') no-repeat center;
+	background-size: 33px 27px;
 	 float:left;
-	 width: 50px;
-     height: 50px;
-     left:220px;
-     top:100px;
+	 width: 40px;
+     height: 40px;
+     left:16.3%;
+     top:9.5%;
      position: absolute;
 }
 #logout
 {
-	background: url('icon1.png') no-repeat center;
+	background: url('out.png') no-repeat center;
+	background-size: 33px 27px;
 	 float:left;
-	 width: 50px;
-     height: 50px;
-     left:220px;
-     top:100px;
+	 width: 40px;
+     height: 40px;
+     left:16.25%;
+     top:9.5%;
      position: absolute;
 }
 #my{
 	
 	background: url('icon3.png') no-repeat center;
+	background-size: 27px 27px;
 	 float:left;
 	 width: 50px;
      height: 50px;
-     left:220px;
-     top:150px;
+     left:15.6%;
+     top:13.5%;
      position: absolute;
 }
 #home{
 	background: url('icon2.png') no-repeat center;
+	background-size: 40px 40px;
 	 float:left;
-	 width: 50px;
-     height: 50px;
-     left:220px;
-     top:50px;
+	 width: 40px;
+     height: 40px;
+     left:16%;
+     top:5%;
      position: absolute;
+}
+
+#tab{
+	background: url('icon4.png') no-repeat center;
+	background-size: 40px 40px;
+	 width: 40px;
+     height: 40px;
+      position: absolute;
+      right: 15.6%;
+      bottom: 17.5%;
+     
 }
