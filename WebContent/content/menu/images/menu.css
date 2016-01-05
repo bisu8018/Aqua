@@ -112,7 +112,6 @@ footer {
 	background-size: 415px 370px;
 	float: left;
 }
-
 #down-right {
 	width: 50%;
 	height: 100%;
@@ -130,7 +129,6 @@ footer {
 	background-size: 333px 310px;
 }
 #login{
-	
 	background: url('in.png') no-repeat center;
 	background-size: 33px 27px;
 	 float:left;
@@ -140,6 +138,7 @@ footer {
      top:9.5%;
      position: absolute;
 }
+
 #logout
 {
 	background: url('out.png') no-repeat center;
@@ -151,6 +150,7 @@ footer {
      top:9.5%;
      position: absolute;
 }
+
 #my{
 	
 	background: url('icon3.png') no-repeat center;
@@ -181,5 +181,6 @@ footer {
       position: absolute;
       right: 15.6%;
       bottom: 17.5%;
+      cursor: pointer;
      
 }

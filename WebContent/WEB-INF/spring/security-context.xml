@@ -6,36 +6,25 @@
         http://www.springframework.org/schema/beans/spring-beans.xsd
         http://www.springframework.org/schema/security
         http://www.springframework.org/schema/security/spring-security.xsd">
-       
         <beans:bean name="failHandler" class="com.aquaesu.webprj.Handlers.AquaesuAutoFailHandler"></beans:bean>
         <beans:bean name="successHandler" class="com.aquaesu.webprj.Handlers.AquaesuSuccessHandler"></beans:bean>
- 
- 
  <http>
       <form-login login-page="/joinus/login"
       default-target-url="/joinus/login"
       authentication-failure-url="/Aqua/joinus/login"
       authentication-failure-handler-ref="failHandler"
       authentication-success-handler-ref="successHandler"/>
-      
-     <logout logout-success-url="/fake/home"/>
+      <logout logout-success-url="/fake/home"/>
      <intercept-url pattern="/joinus/login" access="ROLE_USER"/>
- </http>
- 
+ </http> 
   <authentication-manager>
  	<authentication-provider>
  	<jdbc-user-service data-source-ref="dataSource"
  	users-by-username-query="SELECT Email username,Bpwd password,1 enabled From MEMBERS WHERE Email=?"
- 	authorities-by-username-query="SELECT Email username,'ROLE_USER' authorities From MEMBERS WHERE Email=?"
- 	/>       
- 	
- 	      <user-service>
-             <user name="Aqu@naver.com" password="111" authorities="ROLE_ADMIN"/>
-             <user name="A@naver.com" password="111" authorities="ROLE_USER"/>        
-          </user-service> 
-           </authentication-provider>           
- </authentication-manager> 
-     
+ 	authorities-by-username-query="SELECT Email username, authoritise From MEMBERS WHERE Email=? "
+ 	/>     	
+ </authentication-provider>   
+ </authentication-manager>      
 <!--  <http>
       <form-login login-page=""
       default-target-url=""/>

@@ -15,7 +15,10 @@
   
     <update id="update">      
         <!-- UPDATE MEMBERS SET NAME = #{param1.name},WHERE MID = #{param1.mid}-->
-        UPDATE MEMBERS SET bpwd = #{bpwd} WHERE email=#{email}                             
+        UPDATE MEMBERS SET bpwd = #{bpwd} WHERE email=#{email}     
+        UPDATE MEMBERS SET age = #{age} WHERE email=#{email} 
+        UPDATE MEMBERS SET sex = #{sex} WHERE email=#{email} 
+        UPDATE MEMBERS SET nation = #{nation} WHERE email=#{email}                         
    </update>
    
    <delete id="delete">

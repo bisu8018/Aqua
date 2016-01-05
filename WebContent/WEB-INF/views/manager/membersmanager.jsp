@@ -17,13 +17,43 @@
 		var rowadd = document.querySelector("input[value='등록']");
 		rowadd.onclick = function() {
 
-			var template = document.querySelector("#member-row");
-			var clone = document.importNode(template.content, true);
+			var tr = document.querySelector("#member-row");
+			var clone = document.importNode(tr.content, true);
 
 			member.querySelector("tbody").appendChild(clone);
-
 		}
+		
 
+		//=====<<Ajax GET Method>>=====================================================
+		var numClick = function(event) {
+
+			var page = event.target.innerText;
+
+			//-------------------------------------------------------------
+
+			var request = new XMLHttpRequest();
+
+			request.onreadystatechange = function() {
+				if (request.readyState == 4) {
+					//alert(request.responseText);
+					var tbody = document.querySelector("#notices tbody");
+					tbody.innerHTML = request.responseText;
+				}
+			};
+			//page++;
+			request.open("GET", "membersPartial?p=" + page+"&f="+param.f+"&q="+param.q, true);
+			request.send(null);
+
+			//-------------------------------------------------------------
+
+			return false;
+
+		};
+		var nums = document.querySelectorAll("#pager-wrapper ul a");
+		for (var i = 0; i < nums.length; i++)
+			nums[i].onclick = numClick; 
+
+		
 	}
 </script>
 <link
@@ -54,8 +84,6 @@
 	<div id="search">
 		<input type="text"><input type="button" value="SEARCH">
 	</div>
-
-
 	<div id="table">
 
 		<table id="member">
@@ -99,7 +127,9 @@
 			<tbody>
 
 				<c:forEach var="m" items="${list}">
-					<form name="form1" action="" method="post">
+
+
+					<form action="edit" method="post">
 					<tr>
 						<td><input type="checkbox" name="checkbox1" value="1">
 						</td>
@@ -109,50 +139,48 @@
 						<td><input type="text" name="sex" value="${m.sex}"></td>
 						<td><input type="text" name="age" value="${m.age}"></td>
 						<td><input type="text" name="nation" value="${m.nation}"></td>
-						<td>2015/09/11</td>
-						<td><input type="text"></td>
+						<td>${m.reg}</td>
+						<td>${m.loginreg}</td>
 						<td><input type="submit" value="Edit"></td>
 					</tr>
-					<form name="form2" action="" method="post">
-						<template id="member-row">
-						<tr>
-							<td><input type="checkbox" name="checkbox1" value="1">
-							</td>
-							<td>1</td>
-							<td><input type="text" name="email"></td>
-							<td><input type="text" name="bpwd"></td>
-							<td><input type="text" name="sex"></td>
-							<td><input type="text" name="age"></td>
-							<td><input type="text" name="nation"></td>
-							<td>2015/09/11</td>
-							<td><input type="text"></td>
-							<td><input type="submit" value="Edit"></td>
-						</tr>
-						</template>
-					</form>
+
 					</form>
 				</c:forEach>
+				<tr id="member-row">
+					<form action="insert" method="post">
+					<td><input type="checkbox" name="checkbox1" value="1">
+					</td>
+					<td>1</td>
+					<td><input type="text" name="email"></td>
+					<td><input type="text" name="bpwd"></td>
+					<td><input type="text" name="sex"></td>
+					<td><input type="text" name="age"></td>
+					<td><input type="text" name="nation"></td>
+					<td><input type="submit" value="Insert"></td>
 
-
-
+					</form>
+				</tr>
 			</tbody>
 		</table>
 	</div>
 	<div id="Alter">
-		<input type="button" value="삭제"> <input type="button"
-			value="등록">
+		<input type="button" value="삭제"> 
+
 	</div>
+	<footer id="footer"> <section> <a href=""> <input
+		type="button" value="<"></a> <a href="membersmanager?p=1&f=${param.f}&q=${param.q}"> <input
+		type="button" value="1"></a> <a href="membersmanager?p=2&f=${param.f}&q=${param.q}"><input type="button"
+		value="2"></a> <a href="membersmanager?p=3&f=${param.f}&q=${param.q}"><input type="button" value="3"></a>
 
+	<a href="membersmanager?p=4&f=${param.f}&q=${param.q}"><input type="button" value="4"></a> <a href="membersmanager?p=5&f=${param.f}&q=${param.q}"><input
+		type="button" value="5"></a> <a href="membersmanager?p=6&f=${param.f}&q=${param.q}"><input type="button"
+		value="6"></a> <a href="membersmanager?p=7&f=${param.f}&q=${param.q}"><input type="button" value="7"></a>
 
-	<footer id="footer"> <section> <input type="button"
-		value="<"> <input type="button" value="1"> <input
-		type="button" value="2"> <input type="button" value="3">
-	<input type="button" value="4"> <input type="button" value="5">
-	<input type="button" value="6"> <input type="button" value="7">
-	<input type="button" value="8"> <input type="button" value="9">
-	<input type="button" value="10"> <input type="button" value=">">
+	<a href="membersmanager?p=8&f=${param.f}&q=${param.q}"><input type="button" value="8"></a> <a href="membersmanager?p=9&f=${param.f}&q=${param.q}"><input
+		type="button" value="9"></a> <a href="membersmanager?p=10&f=${param.f}&q=${param.q}"><input type="button"
+		value="10"></a> <a href=""><input type="button" value=">"></a>
+
 	</section> </footer>
-
 
 </body>
 </html>

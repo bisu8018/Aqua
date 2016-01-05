@@ -1,5 +1,7 @@
 package com.aquaesu.webprj.vo;
 
+import java.sql.Date;
+
 public class Members {
 	private String email;
 	private String bpwd;
@@ -9,6 +11,21 @@ public class Members {
 	private String q1;
 	private String q2;
 	private String q3;
+	private Date reg;
+	private Date loginreg;
+	public Date getReg() {
+		return reg;
+	}
+	public void setReg(Date reg) {
+		this.reg = reg;
+	}
+	public Date getLoginreg() {
+		return loginreg;
+	}
+	public void setLoginreg(Date loginreg) {
+		this.loginreg = loginreg;
+	}
+	
 	
 	public String getNation() {
 		return nation;

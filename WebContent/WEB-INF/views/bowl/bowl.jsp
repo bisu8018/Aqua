@@ -13,7 +13,10 @@
 		<header></header>
 		<div id="body">
 			<div id="left-body"></div>
-			<div id="center-body"></div>
+			<div id="center-body">
+			<div id="ws">
+			</div>
+			</div>
 			<div id="right-body"></div>
 		</div>
 		<footer>

@@ -13,6 +13,13 @@ public class MenuController {
 		
 		return "menu/Menu";
 	}	
+	
+	@RequestMapping("menuPartial")   
+	   public String menuPartial() {
+	      
+	      return "/menu/menuPartial";
+	   }
+	
 
 	@RequestMapping("bowl")
 	public String bowl()

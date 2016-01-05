@@ -16,14 +16,16 @@
 			<div id="left-body"></div>
 			<div id="center-body">
 			  <div id="ws">
-                 <div id="wd">
+                
                    <div id = "header">
-                <input type="text" id="s"><input type="submit" id="b"><input type="submit" id="w">
+                <input type="text" id="s">
+                <input type="submit" id="b">
+                <input type="submit" id="w">
                     </div>
-                    <div id="body2">
-                    </div>
- 				
-              	</div>
+                    
+                    <div id="body2">                   
+                    </div> 				
+              	
              </div>
 			</div>
 			<div id="right-body"></div>
