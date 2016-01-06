@@ -39,8 +39,8 @@
 				<div id="one"><input type="email" placeholder="E-MAIL ADDRESS"  id="t" name="email"></div>
 				<div id="two"><input type="password"  placeholder="PASSWORD" id="t" name="bpwd"></div>
 				<div id="three"><input type="password" placeholder="PASSWORD" name="rebpwd" id="t"></div>
-				<div id="four"><input type="radio" checked="checked" name="sex" value="man">Male
-				<input type="radio"  name="sex"  value="woman" >Female</div>
+				<div id="four"><input type="radio" checked="checked" name="sex" value="m">Male
+				<input type="radio"  name="sex"  value="f" >Female</div>
 				<div id="five"><input type="text" placeholder="AGE" name="age" id="t"></div>
 				<div id="six"><select id="nation" name="nation">
 				<option>nation</option>

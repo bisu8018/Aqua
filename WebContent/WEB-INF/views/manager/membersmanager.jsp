@@ -1,7 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="security"
+	uri="http://www.springframework.org/security/tags"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
+<%@ taglib prefix="my" tagdir="/WEB-INF/tags"%> 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -95,13 +99,13 @@
 					<th></th>
 					<th>E-mail</th>
 					<th>password</th>
-					<th><select>
+					<th><select name = "sex">
 							<option>Sex</option>
 							<option>남</option>
 							<option>여</option>
 					</select></th>
 					<th>Age</th>
-					<th><select>
+					<th><select name ="nation">
 							<option>nation</option>
 							<option>Korea</option>
 							<option>USA</option>
@@ -167,20 +171,17 @@
 		<input type="button" value="삭제"> 
 
 	</div>
-	<footer id="footer"> <section> <a href=""> <input
-		type="button" value="<"></a> <a href="membersmanager?p=1&f=${param.f}&q=${param.q}"> <input
-		type="button" value="1"></a> <a href="membersmanager?p=2&f=${param.f}&q=${param.q}"><input type="button"
-		value="2"></a> <a href="membersmanager?p=3&f=${param.f}&q=${param.q}"><input type="button" value="3"></a>
+	
+	
+	<c:set var="lastNum" value="${fn:substringBefore((recordCount/10==0? recordCount/10 : recordCount/10+1),'.')}"/>
+	<footer id="footer"> 
+	<p id="cur-page">
 
-	<a href="membersmanager?p=4&f=${param.f}&q=${param.q}"><input type="button" value="4"></a> <a href="membersmanager?p=5&f=${param.f}&q=${param.q}"><input
-		type="button" value="5"></a> <a href="membersmanager?p=6&f=${param.f}&q=${param.q}"><input type="button"
-		value="6"></a> <a href="membersmanager?p=7&f=${param.f}&q=${param.q}"><input type="button" value="7"></a>
-
-	<a href="membersmanager?p=8&f=${param.f}&q=${param.q}"><input type="button" value="8"></a> <a href="membersmanager?p=9&f=${param.f}&q=${param.q}"><input
-		type="button" value="9"></a> <a href="membersmanager?p=10&f=${param.f}&q=${param.q}"><input type="button"
-		value="10"></a> <a href=""><input type="button" value=">"></a>
-
-	</section> </footer>
+	<span class="strong">${param.p}</span>
+	 / ${lastNum} page
+</p>
+<my:pager/>
+	</footer>
 
 </body>
 </html>

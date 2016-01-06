@@ -30,4 +30,8 @@
         VALUES(#{email},#{bpwd},#{age},#{sex},#{nation})
      </insert> 
      
+     <select id="getMembersCount" resultType="integer">
+		SELECT COUNT(EMAIL) FROM MEMBERS WHERE ${param1} LIKE '%${param2}%'
+	</select>
+     
 </mapper>

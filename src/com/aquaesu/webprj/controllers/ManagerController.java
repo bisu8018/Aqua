@@ -32,13 +32,26 @@ public class ManagerController {
 	private FishDao fishDao;
 
 	@RequestMapping(value = "membersmanager", method = RequestMethod.GET)
-	public String members(Model model, String p) throws SQLException {
+	public String members(Model model, String p, String f, String q) throws SQLException {
 
 		int page = 1;
+		String field = "EMAIL";
+		String query = "";
+		
 		if (p != null && !p.equals(""))
 			page = Integer.parseInt(p);
+		
+		if(f !=null && !f.equals(""))
+			field = f;
+		
+		if(q !=null && !q.equals(""))
+			query = q;
+		
 
-		List<Members> mList = membersDao.getMembers(page, "EMAIL", "");
+		List<Members> mList = membersDao.getMembers(page, field, query);
+		int recordCount = membersDao.getMembersCount(field, query);
+		
+		model.addAttribute("recordCount", recordCount);
 		model.addAttribute("list", mList);
 		return "manager/membersmanager";
 	}
@@ -59,10 +72,10 @@ public class ManagerController {
 		return "redirect:membersmanager";
 	}
 
-	@RequestMapping("noticePartial")
-	public String noticePartial(Model model, String p, String f, String q) throws SQLException {
+	@RequestMapping("membersPartial")
+	public String membersPartial(Model model, String p, String f, String q) throws SQLException {
 		int page =1;
-		String field = "TITLE";
+		String field = "EMAIL";
 		String query = "";
 		
 		if (p != null && !p.equals(""))
