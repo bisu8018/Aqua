@@ -12,4 +12,24 @@
         )A 
         WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
   </select>
+  
+    <update id="update">      
+        <!-- UPDATE MEMBERS SET NAME = #{param1.name},WHERE MID = #{param1.mid}-->
+        UPDATE FISH SET lev = #{lev} WHERE name=#{name}     
+        UPDATE FISH SET type = #{type} WHERE name=#{name} 
+        UPDATE FISH SET fpic = #{fpic} WHERE name=#{name}                        
+   </update>
+   
+   <delete id="delete">
+        DELETE FROM FISH WHERE name = #{name}
+   </delete>
+   
+   <insert id="insert">
+        INSERT INTO FISH(name, lev, type, fpic)
+        VALUES(#{name},#{lev},#{type},#{fpic})
+     </insert> 
+     
+     <select id="getFishCount" resultType="integer">
+		SELECT COUNT(name) FROM FISH WHERE ${param1} LIKE '%${param2}%'
+	</select>
 </mapper>

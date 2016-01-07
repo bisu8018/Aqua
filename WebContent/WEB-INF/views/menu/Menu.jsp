@@ -18,8 +18,7 @@
 	window.onload = function() {
 		//=====<<Ajax POST Methos>>====================================================
 
-		var tab = document.querySelector("#tab");
-		
+		var tab = document.querySelector("#tab");		
 		
 		tab.onclick = function() {
 
@@ -29,32 +28,33 @@
 			dlg.style.position = "fixed";
 			dlg.style.background = "white";
 			dlg.style.bottom = "180px";
-			dlg.style.right = "220px";
-					
-
+			dlg.style.right = "220px";		
 			document.body.appendChild(dlg);
-
 			var request = new XMLHttpRequest();
 			request.onreadystatechange = function() {
-				if (request.readyState == 4) {
-					
-					dlg.innerHTML = request.responseText;
-					
+				if (request.readyState == 4) {					
+					dlg.innerHTML = request.responseText;				
 				}
-			};
-			
+			};			
 			request.open("GET", "menuPartial", true);
 			request.send(null);
+			
+			var body = document.querySelector("#abody");
+			body.onclick = function(){				
+				closeDialog(dlg);
+			}
+			
+			event.stopPropagation();
+			return false;			
+		};	
+		var closeDialog = function(dlg){
+			document.body.removeChild(dlg);
+		};
 
-			return false;
-		}
-		
-		
-	    
 	};
 </script>
 </head>
-<body>
+<body id="abody">
 	<div id="beta"></div>
 	<header></header>
 	<div id="body">

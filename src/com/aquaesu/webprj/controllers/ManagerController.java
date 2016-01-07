@@ -16,6 +16,7 @@ import com.aquaesu.webprj.dao.BoardDao;
 import com.aquaesu.webprj.dao.FishDao;
 import com.aquaesu.webprj.dao.MembersDao;
 import com.aquaesu.webprj.dao.SiteDao;
+import com.aquaesu.webprj.vo.Fish;
 import com.aquaesu.webprj.vo.Members;
 import com.aquaesu.webprj.vo.Site;
 
@@ -27,8 +28,11 @@ import jdk.internal.org.objectweb.asm.tree.analysis.Value;
 public class ManagerController {
 	@Autowired
 	private MembersDao membersDao;
+	@Autowired
 	private SiteDao siteDao;
+	@Autowired
 	private BoardDao boardDao;
+	@Autowired
 	private FishDao fishDao;
 
 	@RequestMapping(value = "membersmanager", method = RequestMethod.GET)
@@ -110,13 +114,46 @@ public class ManagerController {
 		return "manager/boardmanager";
 	}
 
-	@RequestMapping("fishmanager")
-	public String fish(PrintWriter out, Model model) throws SQLException {
-		/*
-		 * List<Site> sList = siteDao.getSite(1, "Ssubject", "");
-		 * model.addAttribute("list", sList);
-		 */
+	
+	@RequestMapping(value = "fishmanager", method = RequestMethod.GET)
+	public String fish(Model model, String p, String f, String q) throws SQLException {
+
+		int page = 1;
+		String field = "NAME";
+		String query = "";
+		
+		if (p != null && !p.equals(""))
+			page = Integer.parseInt(p);
+		
+		if(f !=null && !f.equals(""))
+			field = f;
+		
+		if(q !=null && !q.equals(""))
+			query = q;
+		
+
+		List<Fish> fList = fishDao.getFish(page, field, query);
+		int recordCount = fishDao.getFishCount(field, query);
+		
+		model.addAttribute("recordCount", recordCount);
+		model.addAttribute("list", fList);
 		return "manager/fishmanager";
 	}
 
+	@RequestMapping(value = "edit2", method = RequestMethod.POST)
+	public String fishEdit(Fish fish) throws SQLException {
+
+		fishDao.update(fish);
+
+		return "redirect:fishmanager";
+	}
+	
+	@RequestMapping(value = "insert2", method = RequestMethod.POST)
+	public String fishInsert(Fish fish) throws SQLException {
+
+		fishDao.insert(fish);
+
+		return "redirect:fishmanager";
+	}
+	
 }

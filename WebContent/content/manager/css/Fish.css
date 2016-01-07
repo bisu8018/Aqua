@@ -35,14 +35,15 @@
 	position:absolute;
 	float:left;
 	top:350px;
-	left:80px;
+	left:10px;
+	
 	
 }
 #Alter
 {
 	position:absolute;
 	float:left;
-	top:600px;
+	top:800px;
 	left:80px;
 }
 #footer
@@ -52,4 +53,10 @@
 	top:800px;
 	left:450px;
 	
+}
+
+.strong
+{
+	color:#ff0000;
+	font-weight: bold;
 }

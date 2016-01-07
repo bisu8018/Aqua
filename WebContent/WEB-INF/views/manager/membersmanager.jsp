@@ -47,7 +47,7 @@
 			request.onreadystatechange = function() {
 				if (request.readyState == 4) {
 					//alert(request.responseText);
-					var tbody = document.querySelector("#notices tbody");
+					var tbody = document.querySelector("#member tbody");
 					tbody.innerHTML = request.responseText;
 				}
 			};
@@ -134,6 +134,7 @@
 							<option>오래된 순</option>
 					</select></th>
 					<th>EDIT</th>
+					</tr>
 			</thead>
 
 			<tbody>
@@ -160,8 +161,7 @@
 				</c:forEach>
 				<tr id="member-row">
 					<form action="insert" method="post">
-					<td><input type="checkbox" name="checkbox1" value="1">
-					</td>
+					<td><input type="checkbox" name="checkbox1" value="1"></td>
 					<td>1</td>
 					<td><input type="text" name="email"></td>
 					<td><input type="text" name="bpwd"></td>

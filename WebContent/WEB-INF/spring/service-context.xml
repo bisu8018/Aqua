@@ -35,10 +35,13 @@
  
  <bean name="SiteDao"
   class="com.aquaesu.webprj.dao.mybatis.MyBatisSiteDao"/>
+  <bean name="FishDao"
+  class="com.aquaesu.webprj.dao.mybatis.MyBatisFishDao"/>
  
          
-   <bean name="BoardDao"
+    <bean name="BoardDao"
   class="com.aquaesu.webprj.dao.mybatis.MyBatisBoardDao"/>
+  
   </beans>
   
   

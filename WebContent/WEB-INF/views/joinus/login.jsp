@@ -19,15 +19,17 @@
 				<div id="center">
 				<a href="Menu"><div id="one"></div></a>
 				<form action="<c:url value="/j_spring_security_check"/>" method="post">
-				<div id="two"><input name="j_username" type="email" placeholder="email" id="t" ></div>
-				<div id="three"><input name="j_password" type="password" placeholder="password" id="t"></div>
-				<div id="four"><input type="submit" value="Login" id="button" ></div>
+				<div id="two"><input name="j_username"  type="email" placeholder="   E-MAIL" id="t" ></div>
+				<div id="three"><input name="j_password" type="password" placeholder="   PASSWARD" id="t"></div>
+				<div id="four"><input type="submit" value="LOGIN" id="button" ></div>
 				<div style="color:red"><c:if test = "${error != null}">${error}</c:if></div>
 				
 				</form>
 
 				<div id="five"><a href="logindetail" id="account">Create an account</a>
-				<br><br><a href="password" id="forget">Forgotten your password?</a>
+				<br><br>
+				</div>
+				<div id="six"><a href="password" id="forget">Forgotten your password?</a>
 				</div>
 				
 			</div>

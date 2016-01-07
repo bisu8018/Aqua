@@ -3,8 +3,6 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <c:forEach var="m" items="${list}">
-
-
 					<form action="edit" method="post">
 					<tr>
 						<td><input type="checkbox" name="checkbox1" value="1">
@@ -19,7 +17,6 @@
 						<td>${m.loginreg}</td>
 						<td><input type="submit" value="Edit"></td>
 					</tr>
-
 					</form>
 				</c:forEach>
 				<tr id="member-row">
@@ -33,6 +30,5 @@
 					<td><input type="text" name="age"></td>
 					<td><input type="text" name="nation"></td>
 					<td><input type="submit" value="Insert"></td>
-
 					</form>
 				</tr>
