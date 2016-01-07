@@ -21,9 +21,13 @@
 
 <section>
 	<c:if test="${p>10}">
-		<a href="?p=${prev}&f=${param.f}&q=${param.q}"> <input
-			type="button" value="<"></a>
+		<a href="?p=${prev}&f=${param.f}&q=${param.q}"> 
+		<input type="button" value="<"></a>
 	</c:if>
+	
+	
+	
+	
 	<c:forEach var="i" begin="${p-(p%10)+1}" end="${p-(p%10)+10}">
 		<c:if test="${i <= lastNum }">
 			<c:if test="${i==p}">
@@ -35,10 +39,16 @@
 		</c:if>
 	</c:forEach>
 
+
+
+
 	<c:if test="${lastNum-lastNum%10+1 <=p}">
 	</c:if>
 	<c:if test="${lastNum-lastNum%10+1 >p}">
 		<a href="?p=${next}&f=${param.f}&q=${param.q}"> <input
 			type="button" value=">"></a>
 	</c:if>
+	
+	
+	
 </section>

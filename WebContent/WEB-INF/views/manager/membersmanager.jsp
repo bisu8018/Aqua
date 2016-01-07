@@ -11,6 +11,13 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
+<script>
+   var param = {f:'${param.f}', q:'${param.q}'};
+   
+   if(param.f == "")
+      param.f = "EMAIL";  
+  
+</script>
 <script type="text/javascript">
 	window.onload = function() {
 		var member = document.getElementById("member");
@@ -85,9 +92,10 @@
 	</div>
 	</header>
 	<Strong>Member</Strong>
-	<div id="search">
-		<input type="text"><input type="button" value="SEARCH">
-	</div>
+      <form action="membersmanager" method="get">
+   <div id="search">
+       <input type="text" name="q" value="${param.q}" />
+        <input type="submit" value="Search" />     </div>
 	<div id="table">
 
 		<table id="member">
@@ -174,14 +182,14 @@
 	
 	
 	<c:set var="lastNum" value="${fn:substringBefore((recordCount/10==0? recordCount/10 : recordCount/10+1),'.')}"/>
-	<footer id="footer"> 
 	<p id="cur-page">
 
 	<span class="strong">${param.p}</span>
 	 / ${lastNum} page
 </p>
+	<footer id="footer"> 
 <my:pager/>
 	</footer>
-
+ </form>
 </body>
 </html>

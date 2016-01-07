@@ -100,15 +100,29 @@ footer {
 #up-right {
 	width: 50%;
 	height: 100%;
-	background: url("g.png") no-repeat -35px 23px;
-	background-size: 380px 313px;
+	background: url("g.png") no-repeat -25px 23px;
+	background-size: 370px 313px;
 	float: left;
 }
-
+#up-right:hover {
+	width: 50%;
+	height: 100%;
+	background: url("g2.png") no-repeat -25px 23px;
+	background-size: 370px 313px;
+	float: left;
+}
 #up-left {
 	width: 50%;
 	height: 100%;
 	background: url("b.png") no-repeat -30px -10px;
+	background-size: 415px 370px;
+	float: left;
+}
+#up-left:hover
+{
+	width: 50%;
+	height: 100%;
+	background: url("b2.png") no-repeat -30px -10px;
 	background-size: 415px 370px;
 	float: left;
 }
@@ -119,14 +133,27 @@ footer {
 	background-size: 390px 367px;
 	float: left;
 }
-
+#down-right:hover
+{
+	width: 50%;
+	height: 100%;
+	background: url("o2.png") no-repeat -14px -2px;
+	background-size: 390px 367px;
+	float: left;
+}
 #down-left {
 	width: 50%;
 	height: 100%;
-	background: url("r.png") no-repeat 9px 20px;
-	background-size: 333px 310px;
+	background: url("r.png") no-repeat -12px 20px;
+	background-size: 352px 310px;
 	float: left;
-	background-size: 333px 310px;
+}
+#down-left:hover {
+	width: 50%;
+	height: 100%;
+	background: url("r2.png") no-repeat -12px 20px;
+	background-size: 352px 310px;
+	float: left;
 }
 #login{
 	background: url('in.png') no-repeat center;
@@ -162,6 +189,7 @@ footer {
      top:13.5%;
      position: absolute;
 }
+
 #home{
 	background: url('icon2.png') no-repeat center;
 	background-size: 40px 40px;
