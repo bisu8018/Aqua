@@ -10,6 +10,12 @@
 <link href="${pageContext.request.contextPath}/content/home/css/reset.css" type="text/css" rel="stylesheet"/>
 <link href="${pageContext.request.contextPath}/content/home/css/HomeStyle.css" type="text/css" rel="stylesheet"/>
 </head>
+<script>
+window.onload = function() {
+};
+
+
+</script>
 <body>
 <div class="item" id="item1">
 		<div class="bgImage"></div>

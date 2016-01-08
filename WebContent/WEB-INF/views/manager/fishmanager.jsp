@@ -14,8 +14,6 @@
 <script>
    var param = {f:'${param.f}', q:'${param.q}'};
    
-   if(param.f == "")
-      param.f = "NAME";  
   
 </script>
 <script type="text/javascript">

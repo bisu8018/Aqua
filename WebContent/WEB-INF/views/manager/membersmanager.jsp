@@ -14,8 +14,6 @@
 <script>
    var param = {f:'${param.f}', q:'${param.q}'};
    
-   if(param.f == "")
-      param.f = "EMAIL";  
   
 </script>
 <script type="text/javascript">
@@ -24,7 +22,7 @@
 		var rowcopy = document.querySelector("input[value='삭제']");
 		rowcopy.onclick = function() {
 			alert("행 복제");
-		}
+		};
 		var rowadd = document.querySelector("input[value='등록']");
 		rowadd.onclick = function() {
 
@@ -32,7 +30,7 @@
 			var clone = document.importNode(tr.content, true);
 
 			member.querySelector("tbody").appendChild(clone);
-		}
+		};
 		
 
 		//=====<<Ajax GET Method>>=====================================================

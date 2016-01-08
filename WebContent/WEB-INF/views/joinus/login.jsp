@@ -19,7 +19,7 @@
 				<div id="center">
 				<a href="Menu"><div id="one"></div></a>
 				<form action="<c:url value="/j_spring_security_check"/>" method="post">
-				<div id="two"><input name="j_username"  type="email" placeholder="   E-MAIL" id="t" ></div>
+				<div id="two"><input name="j_username"  type="email" placeholder="   E-MAIL ADDRESS" id="t" ></div>
 				<div id="three"><input name="j_password" type="password" placeholder="   PASSWARD" id="t"></div>
 				<div id="four"><input type="submit" value="LOGIN" id="button" ></div>
 				<div style="color:red"><c:if test = "${error != null}">${error}</c:if></div>
