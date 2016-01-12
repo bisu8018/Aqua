@@ -3,13 +3,22 @@ html, body {
    height: 100%;
    width: 100%;
    overflow: hidden;
-   background: url('site.jpg') no-repeat -10px -10px;
+   background: url('bg.jpg') no-repeat -10px -10px;
    background-attachment: fixed;
    background-repeat: repeat-xy;
-   position: absolute;
-   z-index: -100;
+   position: relative;
+	z-index:-300;
 }
 
+#beta{
+   background: url('beta.png') no-repeat 800px 400px;
+   background-size: 530px 590px;
+   width: 100%;
+   height: 100%;
+   position: absolute;
+	z-index:-200;
+   
+}
 
 header {
    height: 5%;
@@ -19,25 +28,24 @@ header {
 #body {
    height: 80%;
    width: 100%;
-   position:relative;
-   z-index:-200;
+   position: relative;
+	z-index:-190;
 }
 
 #left-body {
    height: 100%;
    width: 10%; 
    float: left;
-   background: url('menu-icon.png') no-repeat -10px 0px;
-   
+   background: url('aa.png') no-repeat -10px 0px;
    background-size: 2% 2%;
 }
 
 #center-body {
+position:relative;	
    height: 100%;
    width: 80%;
    float: left;
-   background: url('redboard.png') no-repeat;
-   background-size: contain;
+   z-index:-100;
 }
 
 #right-body {
@@ -45,49 +53,7 @@ header {
    width: 10%;
    float: left;
 }
-#center-body1{
-	width: 80%;
-	height: 100%;
-	float: left;
-}
-#center-body2{
-	width: 17%;
-	height: 88.5%;
-	position: relative;
-	margin-top: 2.4%;
-	margin-right: 3%;
-	float: left;
-	
-}
-#center_1{
-	width: 96.6%;
-	height: 10%;
-	margin-top: 3%;
-	margin-left: 3%;
-}
-#center_2{
-	width: 96.6%;
-	height: 20%;
-	margin-left: 3%;
-	
-}
-#text1{
-	
-	width: 100%;
-	height: 100%;
-}
-#center_3{
-	width: 96.6%;
-	height: 58.5%;
-	margin-left: 3%;
-	margin-bottom: 3%
-}
-#center_4{
-	margin-top:5px;
-	margin-left:5px;
-	width: 100%;
-	height: 90%;
-}
+
 footer {
    height: 15%;
    width: 100%;
@@ -97,7 +63,9 @@ footer {
    height: 100%;
    width: 19%;
    float: left;
-   background: url('site.png') no-repeat 5px 5px;
+   background: url('menu-icon.png') no-repeat 0px 2px;
+   background-size: 53% 77%;
+   
 }
 #center-footer {
    height: 100%;
@@ -111,55 +79,93 @@ footer {
    float: left;
 }
 
-#icon1{
-	background: url('icon1.png') no-repeat 70px 20px;
-	 
-	 width: 8.4%;
-     height: 6%;
-     position: absolute;
-	
-}
-#icon2{
-	background: url('icon2.png') no-repeat 63px 60px;
-	 float:none;
-	 width: 100%;
-     height: 100%;
-     position: absolute;
-	
-}
-#icon3{
-	background: url('icon3.png') no-repeat 69px 120px;
-	 float:none;
-	 width: 100%;
-     height: 100%;
-     position: absolute;
-	
-}
-#icon4{
-	background: url('icon4.png') no-repeat 10px 670px;
-	 float:none;
-	 width: 100%;
-     height: 100%;
-     position: absolute;
-	
+#ws {
+
+	background: url('ws.png') no-repeat;
+	background-size: 100% 97.3%;
+	position: absolute;
+	height: 100%;
+	width: 100%;
+	z-index:-80;
 }
 
-#music{
-	background: url('music.png') no-repeat 10px 17px;
-	 float:none;
-	 width: 100%;
-     height: 100%;
-     position: absolute;
-	
+
+
+#header {
+	position:absolute;
+	float:left;
+	top:10px;
+	left:10px;
+	height:55px;
+	width:1004px;
+	background:#FFDE6B;
+	z-index:-50;	
 }
 
-#beta{
-   background: url('redfish.png') no-repeat 0px 200px;
-   background-size: 550px 450px;
-   width: 100%;
-   height: 100%;
-   position: absolute;
-   margin-left: 700px;
-    margin-top: 200px;
-    z-index: -101;
+
+#s{	
+	position:absolute;
+	float:left;
+	left:10px;
+	top:10px;
+	width:300px;
+	height:30px;	
+	line-height:30px;
+	font-weight: bold;
+	text-indent: 5px;
+	z-index:-20;
+}
+#b
+{
+	position:absolute;
+	float:left;
+	left:320px;
+	top:10px;
+	width:50px;
+	height:34px;
+	background:url('그림1.jpg') no-repeat center;
+	background-size:50px 34px;
+	text-indent:-999px; /* 글자 밀어내기 */
+	cursor:pointer;
+	border:1px solid black;
+	z-index:-20;	
+}
+#w
+{
+	position:absolute;
+	float:left;
+	left:375px;
+	top:10px;
+	width:50px;
+	height:34px;
+	background:url('그림2.png') no-repeat center;
+	background-size:50px 34px;
+	text-indent:-999px; /* 글자 밀어내기 */
+	cursor:pointer;
+	border:1px solid black;
+	z-index:-20;
+}
+
+#body2{
+	position:absolute;
+	z-index:-3;
+	float:left;
+	left:10px;
+	top:65px;
+	background:#FFD016;
+	width:1004px;
+	height:635px;
+	overflow:hidden;
+}
+
+#tab{
+	background: url('icon4.png') no-repeat center;
+	background-size: 40px 40px;
+	width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 5.6%;
+    bottom: 3%;
+    cursor: pointer;
+     
 }

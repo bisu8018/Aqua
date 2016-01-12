@@ -7,16 +7,52 @@
 <title>wiki</title>
 <link href="${pageContext.request.contextPath}/content/wiki/css/reset.css" type="text/css" rel="stylesheet"/>
 <link href="${pageContext.request.contextPath}/content/wiki/css/wikiStyle.css" type="text/css" rel="stylesheet"/>
+<script>
+	window.onload = function() {
+		//=====<<Ajax POST Methos>>====================================================
 
+		var tab = document.querySelector("#tab");		
+		
+		tab.onclick = function() {
+
+			var dlg = document.createElement("div");
+			dlg.style.width = "400px";
+			dlg.style.height = "400px";
+			dlg.style.position = "fixed";
+			dlg.style.background = "white";
+			dlg.style.bottom = "180px";
+			dlg.style.right = "90px";		
+			document.body.appendChild(dlg);
+			var request = new XMLHttpRequest();
+			request.onreadystatechange = function() {
+				if (request.readyState == 4) {					
+					dlg.innerHTML = request.responseText;				
+				}
+			};			
+			request.open("GET", "menuPartial", true);
+			request.send(null);
+			
+			var body = document.querySelector("#abody");
+			body.onclick = function(){				
+				closeDialog(dlg);
+			}
+			
+			event.stopPropagation();
+			return false;			
+		};	
+		var closeDialog = function(dlg){
+			document.body.removeChild(dlg);
+		};
+	};
+</script>
 </head>
-<body>
+<body id="abody">
 <div id="beta"></div>
 		<header></header>
 		<div id="body">
 			<div id="left-body"></div>
 			<div id="center-body">
 			  <div id="ws">
-                
                    <div id = "header">
                 <input type="text" id="s">
                 <input type="submit" id="b">
@@ -28,7 +64,7 @@
               	
              </div>
 			</div>
-			<div id="right-body"></div>
+			<div id="right-body"><div id="tab"></div></div>
 		</div>
 		<footer>
 		

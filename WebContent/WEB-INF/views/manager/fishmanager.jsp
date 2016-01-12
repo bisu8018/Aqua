@@ -93,7 +93,7 @@
       <form action="fishmanager" method="get">
    <div id="search">
        <input type="text" name="q" value="${param.q}" />
-        <input type="submit" value="Search" />     </div>
+        <input type="submit" value="Search" />     </div> </form>
 	<div id="table">
 
 		<table id="fish">
@@ -173,6 +173,6 @@
 	<footer id="footer"> 
 <my:pager/>
 	</footer>
- </form>
+
 </body>
 </html>

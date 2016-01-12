@@ -11,6 +11,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.aquaesu.webprj.dao.BoardDao;
 import com.aquaesu.webprj.dao.FishDao;
@@ -59,6 +60,28 @@ public class ManagerController {
 		model.addAttribute("list", mList);
 		return "manager/membersmanager";
 	}
+	
+	@RequestMapping(value="membersmanager",method=RequestMethod.POST)
+	   public String site(PrintWriter out, Model model,@RequestParam("code")String code, String p, String f, String q) throws SQLException {
+
+		int page = 1;
+		String field = "EMAIL";
+		String query = "";
+		
+		if (p != null && !p.equals(""))
+			page = Integer.parseInt(p);
+		
+		if(f !=null && !f.equals(""))
+			field = f;
+		
+		if(q !=null && !q.equals(""))
+			query = q;
+	      //int a = Integer.parseInt(code);
+	      System.out.println(code);
+	      List<Members> mList = membersDao.getMembers(page, field, query);
+	      membersDao.delete(mList.get(Integer.parseInt(code)));
+	      return "manager/membersmanager";
+	   }
 
 	@RequestMapping(value = "edit", method = RequestMethod.POST)
 	public String membersEdit(Members members) throws SQLException {

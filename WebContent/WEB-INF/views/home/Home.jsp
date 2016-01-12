@@ -11,12 +11,11 @@
 <link href="${pageContext.request.contextPath}/content/home/css/HomeStyle.css" type="text/css" rel="stylesheet"/>
 </head>
 <script>
-window.onload = function() {
-};
 
 
 </script>
-<body>
+<body id="body">
+<div id="c"></div>
 <div class="item" id="item1">
 		<div class="bgImage"></div>
 	</div>

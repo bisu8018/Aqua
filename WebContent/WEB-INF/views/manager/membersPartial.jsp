@@ -7,7 +7,6 @@
 					<tr>
 						<td><input type="checkbox" name="checkbox1" value="1">
 						</td>
-						<td>1</td>
 						<td><input type="text" name="email" value="${m.email}"></td>
 						<td><input type="text" name="bpwd" value="${m.bpwd}"></td>
 						<td><input type="text" name="sex" value="${m.sex}"></td>

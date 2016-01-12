@@ -8,7 +8,7 @@
 <link
 	href="${pageContext.request.contextPath}/content/home/css/TabStyle.css"
 	type="text/css" rel="stylesheet" />
-</head>
+</head> 
 <body>
 	<div id="center">
 			<div id="u">

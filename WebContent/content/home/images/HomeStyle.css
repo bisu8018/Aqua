@@ -1,10 +1,25 @@
-html, body {
+@keyframes ani-width{
+    from{
+       opacity:0;
+       }
+       
+       to{
+      
+       opacity:1;
+       }
+    }
+
+html,body {
 	margin: 0;
 	padding: 0;
 	height: 100%;
 	width: 100%;
 	overflow: hidden;
 	display: inline-block;
+	animation-name:ani-width;
+	animation-duration: 5s;
+   background:black;
+   opacity:1;
 }
 
 .container {
@@ -41,8 +56,8 @@ html, body {
 }
 
 #item3 .bgImage2 {
-	background: url('beta1.png') no-repeat 750px 170px;
-	background-size: 500px 500px;
+	background: url('beta1.png') no-repeat 800px 200px;
+	background-size: 400px 400px;
 }
 
 .bgImage {
@@ -88,5 +103,4 @@ header{
 	height: 15%;
 	position: relative;
 }
-
 

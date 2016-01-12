@@ -12,13 +12,14 @@ html, body {
 }
 
 #beta {
-	background: url('beta.png') no-repeat 0px 450px;
-	background-size: 600px 500px;
+	background: url('beta.png') no-repeat -160px 360px;
+	background-size: 770px 720px;
 	width: 100%;
 	height: 100%;
 	position: absolute;
 	z-index: -90;
 }
+
 
 header {
 	height: 5%;
@@ -162,8 +163,10 @@ footer {
 	 width: 40px;
      height: 40px;
      left:16.3%;
-     top:9.5%;
+     top:40px;
      position: absolute;
+     opacity: 0;
+     transition-duration: 1s;
 }
 
 #logout
@@ -174,8 +177,10 @@ footer {
 	 width: 40px;
      height: 40px;
      left:16.25%;
-     top:9.5%;
+     top:40px;
      position: absolute;
+     opacity: 0;
+     transition-duration: 1s;
 }
 
 #my{
@@ -186,8 +191,10 @@ footer {
 	 width: 50px;
      height: 50px;
      left:15.6%;
-     top:13.5%;
+     top:40px;
      position: absolute;
+     opacity: 0;
+     transition-duration: 1s;
 }
 
 #home{
@@ -197,8 +204,25 @@ footer {
 	 width: 40px;
      height: 40px;
      left:16%;
+     top:40px;
+     position: absolute;
+     opacity: 0;
+     transition-duration: 1s;
+}
+
+#menu{
+	background: url('menu.png') no-repeat center;
+	background-size: 30px 30px;
+	 float:left;
+	 width: 40px;
+     height: 40px;
+     left:16%;
      top:5%;
      position: absolute;
+     
+     cursor: pointer;
+     z-index: 300;
+     
 }
 
 #tab{

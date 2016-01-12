@@ -7,37 +7,61 @@
 <title>site</title>
 <link href="${pageContext.request.contextPath}/content/site/css/reset.css" type="text/css" rel="stylesheet"/>
 <link href="${pageContext.request.contextPath}/content/site/css/site.css" type="text/css" rel="stylesheet"/>
-</head>
-<body>
- <div id="beta"></div>
-      <header></header>
-      <div id="body">
-         <div id="left-body">
-          <div id="icon1"></div>
-          <div id="icon2"></div>
-          <div id="icon3"></div>
-         </div>
-         <div id="center-body">
-         	<div id="center-body1">
-         		<div id="center_1"><input type="text" id="text1" value="제목"></div>
-         		<div id="center_2"><input type="text" id="text1" value="사이트 정보"></div>
-         		<div id="center_3"><input type="text" id="text1" value="사이트 캡처"></div>
-         	</div>
-         	<div id="center-body2">
-         	<input type="text" id="text1" value="사이트 갯수">
-         	</div>
-         </div>
-         <div id="right-body">
-         <div id="icon4"></div>
-         <div id="music"></div>
-         </div>
-      </div>
-      <footer>
-         <a href="Menu"><div id="left-footer"></div></a>
-         <div id="center-footer"><small>Copyright © 2015 AQUA ESU ALL Rights Reserved</small></div>
-         <div id="right-footer">
-         </div>
-      </footer>
+<script>
+	window.onload = function() {
+		//=====<<Ajax POST Methos>>====================================================
 
+		var tab = document.querySelector("#tab");		
+		
+		tab.onclick = function() {
+
+			var dlg = document.createElement("div");
+			dlg.style.width = "400px";
+			dlg.style.height = "400px";
+			dlg.style.position = "fixed";
+			dlg.style.background = "white";
+			dlg.style.bottom = "180px";
+			dlg.style.right = "90px";		
+			document.body.appendChild(dlg);
+			var request = new XMLHttpRequest();
+			request.onreadystatechange = function() {
+				if (request.readyState == 4) {					
+					dlg.innerHTML = request.responseText;				
+				}
+			};			
+			request.open("GET", "menuPartial", true);
+			request.send(null);
+			
+			var body = document.querySelector("#abody");
+			body.onclick = function(){				
+				closeDialog(dlg);
+			}
+			
+			event.stopPropagation();
+			return false;			
+		};	
+		var closeDialog = function(dlg){
+			document.body.removeChild(dlg);
+		};
+	};
+</script>
+</head>
+<body id="abody">
+<div id="beta"></div>
+		<header></header>
+		<div id="body">
+			<div id="left-body"></div>
+			<div id="center-body">
+			<div id="ws">
+			</div>
+			</div>
+			<div id="right-body"><div id="tab"></div></div>
+		</div>
+		<footer>
+		
+			<a href="Menu"><div id="left-footer"></div></a>
+			<div id="center-footer"><small>Copyright © 2015 AQUA ESU ALL Rights Reserved</small></div>
+			<div id="right-footer"></div>
+		</footer>
 </body>
 </html>

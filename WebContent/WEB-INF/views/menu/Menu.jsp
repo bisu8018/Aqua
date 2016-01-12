@@ -14,12 +14,22 @@
 <link
 	href="${pageContext.request.contextPath}/content/menu/css/menu.css"
 	type="text/css" rel="stylesheet" />
+
+
+<script type="text/javascript" src="/Aqua/content/home/js/menu-icon.js">
+</script>
+	
+<script>
+
+var status = '${pageContext.request.userPrincipal.name}';
+ 
+</script>
 <script>
 	window.onload = function() {
 		//=====<<Ajax POST Methos>>====================================================
-
-		var tab = document.querySelector("#tab");		
 		
+		var tab = document.querySelector("#tab");
+
 		tab.onclick = function() {
 
 			var dlg = document.createElement("div");
@@ -28,37 +38,42 @@
 			dlg.style.position = "fixed";
 			dlg.style.background = "white";
 			dlg.style.bottom = "180px";
-			dlg.style.right = "220px";		
+			dlg.style.right = "220px";
 			document.body.appendChild(dlg);
 			var request = new XMLHttpRequest();
 			request.onreadystatechange = function() {
-				if (request.readyState == 4) {					
-					dlg.innerHTML = request.responseText;				
+				if (request.readyState == 4) {
+					dlg.innerHTML = request.responseText;
 				}
-			};			
+			};
 			request.open("GET", "menuPartial", true);
 			request.send(null);
-			
+
 			var body = document.querySelector("#abody");
-			body.onclick = function(){				
+			body.onclick = function() {
 				closeDialog(dlg);
 			}
-			
+
 			event.stopPropagation();
-			return false;			
-		};	
-		var closeDialog = function(dlg){
+			return false;
+		};
+		var closeDialog = function(dlg) {
 			document.body.removeChild(dlg);
 		};
 
 	};
 </script>
 </head>
+
+
+
 <body id="abody">
 	<div id="beta"></div>
+
 	<header></header>
 	<div id="body">
 		<div id="left-body">
+			<div id="menu"></div>
 			<a href="home"><div id="home"></div></a>
 			<c:if test="${pageContext.request.userPrincipal == null}">
 				<a href="login"><div id="login"></div></a>

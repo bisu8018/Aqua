@@ -13,6 +13,13 @@ public class Members {
 	private String q3;
 	private Date reg;
 	private Date loginreg;
+	private int code;
+	public int getCode() {
+		return code;
+	}
+	public void setCode(int code) {
+		this.code = code;
+	}
 	public Date getReg() {
 		return reg;
 	}
