@@ -13,8 +13,7 @@ html, body {
 	background-attachment: fixed;
 	background-repeat: repeat-xy;
 	position: absolute;
-    z-index: -100;
-	
+    z-index: -100;	
 }
 
 #beta {
@@ -23,8 +22,7 @@ html, body {
 	width: 100%;
 	height: 100%;
 	position: absolute;
-	z-index: -95;
-	
+	z-index: -95;	
 }
 
 header {
@@ -55,7 +53,7 @@ header {
 	position: absolute;
 	height: 100%;
 	width: 100%;
-	    z-index: -90;
+	z-index: -90;
 }
 
 #right-body {
@@ -73,7 +71,6 @@ footer {
 	height: 100%;
 	width: 19%;
 	float: left;
-	cursor: pointer;
 }
 
 #center-footer {
@@ -235,7 +232,6 @@ footer {
       right: 5.6%;
       bottom: 17.5%;
       cursor: pointer;
-     
 }
 
 
@@ -260,9 +256,7 @@ footer {
      height: 40px;
      left:75px;
      top:45px;
-     position: absolute;
-     
+     position: absolute;     
      cursor: pointer;
      z-index: 300;
-     
 }

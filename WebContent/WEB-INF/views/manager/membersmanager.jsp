@@ -23,7 +23,7 @@
 
 		var rowcopy = document.querySelector("input[value='삭제']");
 		rowcopy.onclick = function() {
-rowcopy.hasOwnProperty(name)
+			rowcopy.hasOwnProperty(name)
 			var request;
 			if (window.ActiveXObject)
 				request = new ActiveXObject("Microsoft.XMLHTTP");
@@ -83,10 +83,9 @@ rowcopy.hasOwnProperty(name)
 		for (var i = 0; i < nums.length; i++)
 			nums[i].onclick = numClick;
 
-		
-		
 	}
 </script>
+
 <link
 	href="${pageContext.request.contextPath}/content/manager/css/Members.css"
 	type="text/css" rel="stylesheet" />
@@ -129,8 +128,8 @@ rowcopy.hasOwnProperty(name)
 					<th>E-mail</th>
 					<th>password</th>
 					<form action="membersmanager" method="get">
-					<th><select name="sex">
-							<option>Sex</option>
+					<th><select name="selectsex" ">
+							<option>sex</option>
 							<option>m</option>
 							<option>f</option>
 					</select></th>
@@ -159,15 +158,10 @@ rowcopy.hasOwnProperty(name)
 					<th>EDIT</th>
 				</tr>
 			</thead>
-
 			<tbody>
-
-
 				<c:forEach var="m" items="${list}">
-
-
 					<form action="edit" method="post">
-					<tr id="member-row-del">
+					<tr id="member-row2">
 						<td><input type="checkbox" name="checkbox" value="code">
 						</td>
 						<td><input type="text" name="email" value="${m.email}"></td>
@@ -179,7 +173,7 @@ rowcopy.hasOwnProperty(name)
 						<td>${m.loginreg}</td>
 						<td><input type="submit" value="Edit"></td>
 					</tr>
-
+					
 					</form>
 				</c:forEach>
 				<tr id="member-row">

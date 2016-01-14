@@ -51,7 +51,6 @@ public class ManagerController {
 		
 		if(q !=null && !q.equals(""))
 			query = q;
-		
 
 		List<Members> mList = membersDao.getMembers(page, field, query);
 		int recordCount = membersDao.getMembersCount(field, query);
@@ -76,8 +75,6 @@ public class ManagerController {
 		
 		if(q !=null && !q.equals(""))
 			query = q;
-	      //int a = Integer.parseInt(code);
-	      System.out.println(code);
 	      List<Members> mList = membersDao.getMembers(page, field, query);
 	      membersDao.delete(mList.get(Integer.parseInt(code)));
 	      return "manager/membersmanager";
