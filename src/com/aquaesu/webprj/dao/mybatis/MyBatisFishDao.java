@@ -60,5 +60,11 @@ public class MyBatisFishDao implements FishDao{
 	      int aft = dao.getFishCount(field,query);
 	      return aft;
 	}
+	@Override
+	   public List<Fish> getFishs(int page, String field, String query) throws SQLException {
+	      FishDao dao=sqlSession.getMapper(FishDao.class); //세션을 통해 MemberDao의 정보를 전해줌
+	         List<Fish> list= dao.getFishs(page,field,query);
+	      return list;
+	   }
 	
 }

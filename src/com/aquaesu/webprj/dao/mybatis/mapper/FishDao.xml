@@ -12,7 +12,9 @@
         )A 
         WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
   </select>
-  
+  <select id="getFishs" resultType="com.aquaesu.webprj.vo.Fish">
+  SELECT * FROM FISH;
+  </select>
     <update id="update">      
         <!-- UPDATE MEMBERS SET NAME = #{param1.name},WHERE MID = #{param1.mid}-->
         UPDATE FISH SET lev = #{lev} WHERE name=#{name}     

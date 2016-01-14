@@ -43,7 +43,7 @@ public class MenuController {
       String query = "";*/
       
 
-      List<Fish> bList = fishDao.getFish(1, "name", "");
+      List<Fish> bList = fishDao.getFishs(1, "name", "");
       
       model.addAttribute("list", bList);   
       

@@ -192,6 +192,7 @@ footer {
 	width: 33.3%;
 	height:100%;
 	float: left;
+	overflow: auto;
 }
 #container-2b{
 	background: #8080ff;

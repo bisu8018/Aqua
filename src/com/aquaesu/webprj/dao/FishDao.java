@@ -14,4 +14,5 @@ public interface FishDao {
 	public int delete(Fish fish);
 	public int insert(Fish fish);
 	public int getFishCount(String field, String query);	
+	public List<Fish> getFishs(int page, String field, String query) throws SQLException;
 }
