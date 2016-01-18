@@ -11,7 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.aquaesu.webprj.dao.FishDao;
+import com.aquaesu.webprj.dao.SiteDao;
 import com.aquaesu.webprj.vo.Fish;
+import com.aquaesu.webprj.vo.Site;
 
 
 
@@ -21,6 +23,11 @@ public class MenuController {
    
    @Autowired
    private FishDao fishDao;
+   
+   @Autowired
+   private SiteDao siteDao;
+   
+   
    
    @RequestMapping("Menu")
    public String home()
@@ -54,9 +61,13 @@ public class MenuController {
    {
       return "board/board";
    }
-   @RequestMapping("site")
-   public String site()
+   @RequestMapping(value="site", method = RequestMethod.GET)
+   public String site(Model model) throws SQLException
    {
+	   List<Site> sList = siteDao.getSite(1, "Ssubject", "");
+	      
+	      model.addAttribute("list", sList);   
+	   
       return "site/site";
    }
    

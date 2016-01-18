@@ -9,12 +9,9 @@
 <meta charset="UTF-8">
 <title>회원가입</title>
 <script type="text/javascript" src="/Aqua/content/home/js/menu-icon.js">
-</script>
-	
+</script>	
 <script>
-
 var status = ('${pageContext.request.userPrincipal.name}');
- 
 </script>
 <script>
 	function checking(){
@@ -23,20 +20,13 @@ var status = ('${pageContext.request.userPrincipal.name}');
 		else if(document.writeForm.bpwd.value!=document.writeForm.rebpwd.value) alert("Wrong PASSWORD");
 		else if(document.writeForm.age.value=="")alert("Please check your SEX");
 		else if(document.writeForm.nation.value=="nation") alert("Please choose your NATION");
-		
 		else document.writeForm.submit();
-	}
-	
-	
+	}	
 </script>
 <script>
 	window.onload = function() {
-		//=====<<Ajax POST Methos>>====================================================
-
-		var tab = document.querySelector("#tab");		
-		
+		var tab = document.querySelector("#tab");			
 		tab.onclick = function() {
-
 			var dlg = document.createElement("div");
 			dlg.style.width = "400px";
 			dlg.style.height = "400px";
@@ -53,19 +43,16 @@ var status = ('${pageContext.request.userPrincipal.name}');
 			};			
 			request.open("GET", "menuPartial", true);
 			request.send(null);
-			
 			var body = document.querySelector("#abody");
 			body.onclick = function(){				
 				closeDialog(dlg);
-			}
-			
+			}			
 			event.stopPropagation();
 			return false;			
 		};	
 		var closeDialog = function(dlg){
 			document.body.removeChild(dlg);
 		};
-
 	};
 </script>
 <link href="${pageContext.request.contextPath}/content/joinus/css/reset.css" style="text/css" rel="stylesheet">
@@ -73,20 +60,17 @@ var status = ('${pageContext.request.userPrincipal.name}');
 </head>
 <body id="abody">
 	<div id="beta"></div>
-	<header></header>
-	
+	<header></header>	
 	<div id="body">
 		<div id="left-body">
 		<div id="menu"></div>
 			<a href="home"><div id="home"></div></a>	
-			
-		</div>
+			</div>
 		<div id="center-body">
 			<div id="box">
 				<div id="left"></div>
 				<div id="center">
 				<form action="login" method="post" name="writeForm">
-				
 				<div id="one"><input type="email" placeholder="       E-MAIL ADDRESS"  id="t" name="email"></div>
 				<div id="two"><input type="password"  placeholder="       PASSWORD" id="t" name="bpwd"></div>
 				<div id="three"><input type="password" placeholder="       PASSWORD" name="rebpwd" id="t"></div>
@@ -104,7 +88,7 @@ var status = ('${pageContext.request.userPrincipal.name}');
 				<div id="eight"><input type="text" id="t" placeholder="qu2" name="q2"></div>
 				<div id="nine"><input type="text" id="t" placeholder="qu3" name="q3"></div>
 				<div id="ten">
-				<input onclick="checking()" value="CREATE ACCOUNT" id="button" t></a>
+				<input onclick="checking()" value="CREATE ACCOUNT" id="button" /></a>
 				</div>
 				</form>
 				</div>
@@ -115,7 +99,6 @@ var status = ('${pageContext.request.userPrincipal.name}');
 		<div id="right-body"><div id="tab"></div></div>
 	</div>
 	<footer>
-
 		<div id="left-footer"></div>
 		<div id="center-footer">
 			<small>Copyright © 2015 AQUA ESU ALL Rights Reserved</small>
