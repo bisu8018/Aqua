@@ -1,5 +1,6 @@
 package com.aquaesu.webprj.controllers;
 
+import java.io.PrintWriter;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -9,10 +10,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.aquaesu.webprj.dao.FishDao;
 import com.aquaesu.webprj.dao.SiteDao;
 import com.aquaesu.webprj.vo.Fish;
+import com.aquaesu.webprj.vo.Members;
 import com.aquaesu.webprj.vo.Site;
 
 
@@ -56,6 +59,21 @@ public class MenuController {
       
       return "bowl/bowl";
    }
+   
+   
+   @RequestMapping(value="bowl",method=RequestMethod.POST)
+   public String site(PrintWriter out, Model model,int lev) throws SQLException {
+	   
+	   
+	   List<Fish> fList = fishDao.simulate(lev);
+      model.addAttribute("list", fList);
+     
+      return "bowl/bowl";
+   }
+   
+   
+   
+   
    @RequestMapping("board")
    public String board()
    {

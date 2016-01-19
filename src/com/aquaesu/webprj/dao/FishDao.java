@@ -15,4 +15,5 @@ public interface FishDao {
 	public int insert(Fish fish);
 	public int getFishCount(String field, String query);	
 	public List<Fish> getFishs(int page, String field, String query) throws SQLException;
+	public List<Fish> simulate(int lev);
 }

@@ -23,12 +23,17 @@
 </script>
 <script>
 	var status = ('${pageContext.request.userPrincipal.name}');
+	
 </script>
+
 <script>
 	window.onload = function() {
+		//=====<<Ajax POST Methos>>====================================================
 
 		var tab = document.querySelector("#tab");
+
 		tab.onclick = function() {
+
 			var dlg = document.createElement("div");
 			dlg.style.width = "400px";
 			dlg.style.height = "400px";
@@ -36,6 +41,7 @@
 			dlg.style.background = "white";
 			dlg.style.bottom = "180px";
 			dlg.style.right = "90px";
+			dlg.style.zIndex = 999;
 			document.body.appendChild(dlg);
 			var request = new XMLHttpRequest();
 			request.onreadystatechange = function() {
@@ -49,7 +55,7 @@
 			var body = document.querySelector("#abody");
 			body.onclick = function() {
 				closeDialog(dlg);
-			};
+			}
 
 			event.stopPropagation();
 			return false;
@@ -59,14 +65,22 @@
 		};
 	};
 </script>
+
 <script>
 	window.addEventListener("load", function() {
+		var request = new XMLHttpRequest();
+		var lis = document.querySelectorAll(".aaa");
 
 		function liClick(event) {
 			event.target.style.background = "black";
 			event.target.style.opacity = 0.5;
+			
+			request.open("POST", "bowl", true);
+			request.setRequestHeader("Content-type",
+					"application/x-www-form-urlencoded");
+			request.send("lev=" + event.target.value);
+
 		}
-		var lis = document.querySelectorAll(".aaa");
 		for (var i = 0; i < lis.length; i++)
 			lis[i].onclick = liClick;
 	});
@@ -104,7 +118,7 @@
 							<c:forEach var="f" items="${list}">
 								<ul>
 									<c:if test="${f.type=='냉수어'}">
-										<li class="aaa">${f.name}</li>
+										<li class="aaa" value="${f.lev}">${f.name}</li>
 									</c:if>
 								</ul>
 							</c:forEach>
@@ -115,7 +129,7 @@
 							<c:forEach var="f" items="${list}">
 								<ul>
 									<c:if test="${f.type=='해수어'}">
-										<li class="aaa">${f.name}</li>
+										<li class="aaa" value="${f.lev}">${f.name}</li>
 									</c:if>
 								</ul>
 							</c:forEach>
@@ -126,7 +140,7 @@
 							<c:forEach var="f" items="${list}">
 								<ul>
 									<c:if test="${f.type=='열대어'}">
-										<li class="aaa">${f.name}</li>
+										<li class="aaa" value="${f.lev}">${f.name}</li>
 									</c:if>
 								</ul>
 							</c:forEach>

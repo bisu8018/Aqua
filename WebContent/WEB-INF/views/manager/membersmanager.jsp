@@ -128,7 +128,7 @@
 					<th>E-mail</th>
 					<th>password</th>
 					<form action="membersmanager" method="get">
-					<th><select name="selectsex" ">
+					<th><select name="selectsex" >
 							<option>sex</option>
 							<option>m</option>
 							<option>f</option>

@@ -14,6 +14,7 @@ public class Fish {
 	public int getLev() {
 		return lev;
 	}
+	
 	public void setLev(int lev) {
 		this.lev = lev;
 	}

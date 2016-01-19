@@ -66,5 +66,12 @@ public class MyBatisFishDao implements FishDao{
 	         List<Fish> list= dao.getFishs(page,field,query);
 	      return list;
 	   }
+
+	@Override
+	public List<Fish> simulate(int lev) {
+		 FishDao dao=sqlSession.getMapper(FishDao.class); 
+         List<Fish> list= dao.simulate(lev);
+      return list;
+	}
 	
 }

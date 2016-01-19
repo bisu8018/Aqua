@@ -3,35 +3,48 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.aquaesu.webprj.dao.FishDao">
-  <select id="getFish" resultType="com.aquaesu.webprj.vo.Fish">
-    SELECT * FROM 
-      (SELECT 
-      ROW_NUMBER() OVER
-           (ORDER BY NAME DESC) NUM,FISH.* FROM FISH 
-           WHERE ${param2} LIKE '%${param3}%' 
-        )A 
-        WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
-  </select>
-  <select id="getFishs" resultType="com.aquaesu.webprj.vo.Fish">
-  SELECT * FROM FISH;
-  </select>
-    <update id="update">      
-        <!-- UPDATE MEMBERS SET NAME = #{param1.name},WHERE MID = #{param1.mid}-->
-        UPDATE FISH SET lev = #{lev} WHERE name=#{name}     
-        UPDATE FISH SET type = #{type} WHERE name=#{name} 
-        UPDATE FISH SET fpic = #{fpic} WHERE name=#{name}                        
-   </update>
-   
-   <delete id="delete">
-        DELETE FROM FISH WHERE name = #{name}
-   </delete>
-   
-   <insert id="insert">
-        INSERT INTO FISH(name, lev, type, fpic)
-        VALUES(#{name},#{lev},#{type},#{fpic})
-     </insert> 
-     
-     <select id="getFishCount" resultType="integer">
-		SELECT COUNT(name) FROM FISH WHERE ${param1} LIKE '%${param2}%'
+	<select id="getFish" resultType="com.aquaesu.webprj.vo.Fish">
+		SELECT * FROM
+		(SELECT
+		ROW_NUMBER() OVER
+		(ORDER BY NAME DESC) NUM,FISH.* FROM FISH
+		WHERE ${param2} LIKE '%${param3}%'
+		)A
+		WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
+	</select>
+
+	<select id="getFishs" resultType="com.aquaesu.webprj.vo.Fish">
+		SELECT * FROM FISH;
+	</select>
+
+	<select id="simulate" resultType="com.aquaesu.webprj.vo.Fish" >
+	
+		SELECT * FROM FISH WHERE 
+		<if test="param1==1">lev = 1</if>
+		<!-- <if test="lev==3">lev=3</if>
+		<if test="lev==4">lev=4</if>
+		<if test="lev==5">lev=5</if> -->
+		
+	</select>
+
+	<update id="update">
+		<!-- UPDATE MEMBERS SET NAME = #{param1.name},WHERE MID = #{param1.mid} -->
+		UPDATE FISH SET lev = #{lev} WHERE name=#{name}
+		UPDATE FISH SET type = #{type} WHERE name=#{name}
+		UPDATE FISH SET fpic = #{fpic} WHERE name=#{name}
+	</update>
+
+	<delete id="delete">
+		DELETE FROM FISH WHERE name = #{name}
+	</delete>
+
+	<insert id="insert">
+		INSERT INTO FISH(name, lev, type, fpic)
+		VALUES(#{name},#{lev},#{type},#{fpic})
+	</insert>
+
+	<select id="getFishCount" resultType="integer">
+		SELECT COUNT(name) FROM
+		FISH WHERE ${param1} LIKE '%${param2}%'
 	</select>
 </mapper>
