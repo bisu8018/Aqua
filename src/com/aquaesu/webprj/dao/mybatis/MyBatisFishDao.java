@@ -67,11 +67,20 @@ public class MyBatisFishDao implements FishDao{
 	      return list;
 	   }
 
+	
+
+	/*@Override
+	public int simulate(Fish fish) {
+		FishDao dao=sqlSession.getMapper(FishDao.class);
+	      int aft = dao.simulate(fish);
+	      return aft;
+	}*/
+
 	@Override
 	public List<Fish> simulate(int lev) {
-		 FishDao dao=sqlSession.getMapper(FishDao.class); 
-         List<Fish> list= dao.simulate(lev);
-      return list;
+		FishDao dao=sqlSession.getMapper(FishDao.class); //세션을 통해 MemberDao의 정보를 전해줌
+        List<Fish> list= dao.simulate(lev);
+     return list;
 	}
 	
 }

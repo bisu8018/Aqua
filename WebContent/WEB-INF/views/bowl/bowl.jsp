@@ -23,13 +23,10 @@
 </script>
 <script>
 	var status = ('${pageContext.request.userPrincipal.name}');
-	
 </script>
 
 <script>
 	window.onload = function() {
-		//=====<<Ajax POST Methos>>====================================================
-
 		var tab = document.querySelector("#tab");
 
 		tab.onclick = function() {
@@ -65,30 +62,37 @@
 		};
 	};
 </script>
-
 <script>
 	window.addEventListener("load", function() {
 		var request = new XMLHttpRequest();
 		var lis = document.querySelectorAll(".aaa");
-
+		
 		function liClick(event) {
-			event.target.style.background = "black";
-			event.target.style.opacity = 0.5;
-			
-			request.open("POST", "bowl", true);
-			request.setRequestHeader("Content-type",
-					"application/x-www-form-urlencoded");
-			request.send("lev=" + event.target.value);
 
+			event.target.style.background = "blue";
+			event.target.style.opacity = 0.5;
+
+			request.open("GET", "bowl2?lev=" + event.target.value, true);
+			request.send();
+
+			request.onreadystatechange = function() {
+				var datas = '${list}';
+				alert(datas);
+				if (request.readyState == 4) {
+					datas = request.responseText;
+					alert(datas.name);
+				}
+			}
 		}
-		for (var i = 0; i < lis.length; i++)
+		for (var i = 0; i < lis.length; i++) {
 			lis[i].onclick = liClick;
+		}
 	});
 </script>
 <body id="abody">
 	<div id="ribon"></div>
 	<div id="beta"></div>
-	<header></header>
+	<header> </header>
 	<div id="body">
 		<div id="left-body">
 			<div id="menu"></div>
@@ -115,7 +119,7 @@
 				<div id="container-2">
 					<div id="scroll">
 						<div id="container-2a">
-							<c:forEach var="f" items="${list}">
+							<c:forEach  var="f" items="${list}">
 								<ul>
 									<c:if test="${f.type=='냉수어'}">
 										<li class="aaa" value="${f.lev}">${f.name}</li>
@@ -126,7 +130,7 @@
 					</div>
 					<div id="scroll">
 						<div id="container-2b">
-							<c:forEach var="f" items="${list}">
+							<c:forEach  var="f" items="${list}">
 								<ul>
 									<c:if test="${f.type=='해수어'}">
 										<li class="aaa" value="${f.lev}">${f.name}</li>
@@ -137,7 +141,7 @@
 					</div>
 					<div id="scroll">
 						<div id="container-2c">
-							<c:forEach var="f" items="${list}">
+							<c:forEach  var="f" items="${list}">
 								<ul>
 									<c:if test="${f.type=='열대어'}">
 										<li class="aaa" value="${f.lev}">${f.name}</li>

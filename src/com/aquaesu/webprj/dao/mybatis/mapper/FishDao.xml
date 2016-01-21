@@ -17,14 +17,13 @@
 		SELECT * FROM FISH;
 	</select>
 
-	<select id="simulate" resultType="com.aquaesu.webprj.vo.Fish" >
-	
-		SELECT * FROM FISH WHERE 
-		<if test="param1==1">lev = 1</if>
-		<!-- <if test="lev==3">lev=3</if>
-		<if test="lev==4">lev=4</if>
-		<if test="lev==5">lev=5</if> -->
-		
+	<select id="simulate" resultType="com.aquaesu.webprj.vo.Fish" parameterType="int">
+		SELECT * FROM FISH WHERE
+		<if test="value==1">lev=1</if>
+		<if test="value==2">lev=2</if>
+		<if test="value==3">lev=3</if>
+		<if test="value==4">lev=4</if>
+		<if test="value==5">lev=5</if> 
 	</select>
 
 	<update id="update">
