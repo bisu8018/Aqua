@@ -17,13 +17,33 @@
 		SELECT * FROM FISH;
 	</select>
 
-	<select id="simulate" resultType="com.aquaesu.webprj.vo.Fish" parameterType="int">
+	<select id="simulate" resultType="com.aquaesu.webprj.vo.Fish" >
 		SELECT * FROM FISH WHERE
-		<if test="value==1">lev=1</if>
-		<if test="value==2">lev=2</if>
-		<if test="value==3">lev=3</if>
-		<if test="value==4">lev=4</if>
-		<if test="value==5">lev=5</if> 
+		<if test="param1==1">
+		<if test="param2=='열대어'">lev=1 AND type='열대어'</if>
+		<if test="param2=='해수어'">lev=1 AND type='해수어'</if>
+		<if test="param2=='냉수어'">lev=1 AND type='냉수어'</if>
+		</if>
+		<if test="param1==2">
+		<if test="param2=='열대어'">lev=2 AND type='열대어'</if>
+		<if test="param2=='해수어'">lev=2 AND type='해수어'</if>
+		<if test="param2=='냉수어'">lev=2 AND type='냉수어'</if>
+		</if>
+		<if test="param1==3">
+		<if test="param2=='열대어'">lev=3 AND type='열대어'</if>
+		<if test="param2=='해수어'">lev=3 AND type='해수어'</if>
+		<if test="param2=='냉수어'">lev=3 AND type='냉수어'</if>
+		</if>
+		<if test="param1==4">
+		<if test="param2=='열대어'">lev=4 AND type='열대어'</if>
+		<if test="param2=='해수어'">lev=4 AND type='해수어'</if>
+		<if test="param2=='냉수어'">lev=4 AND type='냉수어'</if>
+		</if>
+		<if test="param1==5">
+		<if test="param2=='열대어'">lev=5 AND type='열대어'</if>
+		<if test="param2=='해수어'">lev=5 AND type='해수어'</if>
+		<if test="param2=='냉수어'">lev=5 AND type='냉수어'</if>
+		</if>
 	</select>
 
 	<update id="update">

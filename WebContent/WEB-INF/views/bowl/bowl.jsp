@@ -66,7 +66,8 @@
 	window.addEventListener("load", function() {
 		var request = new XMLHttpRequest();
 		var lis = document.querySelectorAll(".aaa");
-		
+		var status = 0;
+		//document.getElementById("li1").innerHTML = datas;
 		function liClick(event) {
 
 			event.target.style.background = "blue";
@@ -76,11 +77,11 @@
 			request.send();
 
 			request.onreadystatechange = function() {
-				var datas = '${list}';
-				alert(datas);
+				
 				if (request.readyState == 4) {
-					datas = request.responseText;
-					alert(datas.name);
+					var datas = eval(request.responseText);
+					alert(datas[0][0].name);
+					// document.getElementById("li1").innerHTML = datas;
 				}
 			}
 		}
@@ -92,7 +93,10 @@
 <body id="abody">
 	<div id="ribon"></div>
 	<div id="beta"></div>
-	<header> </header>
+	<header>
+	<div id="list"></div>
+
+	</header>
 	<div id="body">
 		<div id="left-body">
 			<div id="menu"></div>
@@ -119,35 +123,35 @@
 				<div id="container-2">
 					<div id="scroll">
 						<div id="container-2a">
-							<c:forEach  var="f" items="${list}">
-								<ul>
+							<ul>
+								<c:forEach var="f" items="${list}">
 									<c:if test="${f.type=='냉수어'}">
 										<li class="aaa" value="${f.lev}">${f.name}</li>
 									</c:if>
-								</ul>
-							</c:forEach>
+								</c:forEach>
+							</ul>
 						</div>
 					</div>
 					<div id="scroll">
 						<div id="container-2b">
-							<c:forEach  var="f" items="${list}">
-								<ul>
+							<ul>
+								<c:forEach var="f" items="${list}">
 									<c:if test="${f.type=='해수어'}">
 										<li class="aaa" value="${f.lev}">${f.name}</li>
 									</c:if>
-								</ul>
-							</c:forEach>
+								</c:forEach>
+							</ul>
 						</div>
 					</div>
 					<div id="scroll">
 						<div id="container-2c">
-							<c:forEach  var="f" items="${list}">
-								<ul>
+							<ul>
+								<c:forEach var="f" items="${list}">
 									<c:if test="${f.type=='열대어'}">
 										<li class="aaa" value="${f.lev}">${f.name}</li>
 									</c:if>
-								</ul>
-							</c:forEach>
+								</c:forEach>
+							</ul>
 						</div>
 					</div>
 				</div>

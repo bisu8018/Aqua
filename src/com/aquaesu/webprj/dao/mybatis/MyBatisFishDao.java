@@ -77,9 +77,9 @@ public class MyBatisFishDao implements FishDao{
 	}*/
 
 	@Override
-	public List<Fish> simulate(int lev) {
+	public List<Fish> simulate(int lev, String type) {
 		FishDao dao=sqlSession.getMapper(FishDao.class); //세션을 통해 MemberDao의 정보를 전해줌
-        List<Fish> list= dao.simulate(lev);
+        List<Fish> list= dao.simulate(lev, type);
      return list;
 	}
 	

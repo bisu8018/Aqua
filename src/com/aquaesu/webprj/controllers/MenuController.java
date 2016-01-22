@@ -53,29 +53,76 @@ public class MenuController {
 	}
 
 	@RequestMapping(value = "bowl2", method = RequestMethod.GET)
-	public void simulate(PrintWriter out, Model model, String lev) throws SQLException {
-		
+	public void simulate(PrintWriter out, Model model, String lev, String type) throws SQLException {
+
 		int level = 1;
-		
+
 		if (lev != null && !lev.equals(""))
 			level = Integer.parseInt(lev);
-		
-		
-		
-		
-		List<Fish> fList = fishDao.simulate(level);
 		StringBuilder builder = new StringBuilder();
+		
+			
 		builder.append("[");
-		int size = fList.size();
+			
+		
+
+		List<Fish> fList = fishDao.simulate(level, "열대어");
+		builder.append("[");
 		for (int i = 0; i < fList.size(); i++) {
 			Fish f = fList.get(i);
-			builder.append(String.format("{'name':'%s' , 'lev':'%d' , 'type':'%s' , 'fpic':'%s'}", f.getName(),
-					f.getLev(), f.getType(), f.getFpic()));
+
+			if (i == fList.size() - 1)
+				builder.append(String.format("{'name':'%s' , 'lev':'%d' , 'type':'%s' , 'fpic':'%s'}", f.getName(),
+						f.getLev(), f.getType(), f.getFpic()));
+			else
+				builder.append(String.format("{'name':'%s' , 'lev':'%d' , 'type':'%s' , 'fpic':'%s'},", f.getName(),
+						f.getLev(), f.getType(), f.getFpic()));
 		}
+		builder.append("],");
+
+		
+		
+		List<Fish> fList2 = fishDao.simulate(level, "해수어");
+		builder.append("[");
+		for (int i = 0; i < fList2.size(); i++) {
+			Fish f = fList2.get(i);
+
+			if (i == fList2.size() - 1)
+				builder.append(String.format("{'name':'%s' , 'lev':'%d' , 'type':'%s' , 'fpic':'%s'}", f.getName(),
+						f.getLev(), f.getType(), f.getFpic()));
+			else
+				builder.append(String.format("{'name':'%s' , 'lev':'%d' , 'type':'%s' , 'fpic':'%s'},", f.getName(),
+						f.getLev(), f.getType(), f.getFpic()));
+		}
+
+		builder.append("],");
+		
+		
+		
+		List<Fish> fList3 = fishDao.simulate(level, "냉수어");
+		builder.append("[");
+		for (int i = 0; i < fList3.size(); i++) {
+			Fish f = fList3.get(i);
+
+			if (i == fList3.size() - 1)
+				builder.append(String.format("{'name':'%s' , 'lev':'%d' , 'type':'%s' , 'fpic':'%s'}", f.getName(),
+						f.getLev(), f.getType(), f.getFpic()));
+			else
+				builder.append(String.format("{'name':'%s' , 'lev':'%d' , 'type':'%s' , 'fpic':'%s'},", f.getName(),
+						f.getLev(), f.getType(), f.getFpic()));
+		}
+
+		builder.append("]");
+		
+		
+		
+		
 		
 		builder.append("]");
-
+		
 		out.println(builder.toString());
+
+		
 		
 	}
 
