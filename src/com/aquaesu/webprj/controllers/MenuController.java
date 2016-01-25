@@ -42,9 +42,7 @@ public class MenuController {
 
 	@RequestMapping(value = "bowl", method = RequestMethod.GET)
 	public String bowl(Model model) throws SQLException {
-		/*
-		 * int page = 1; String field = "NAME"; String query = "";
-		 */
+		
 
 		List<Fish> bList = fishDao.getFishs(1, "name", "");
 
@@ -63,8 +61,7 @@ public class MenuController {
 		
 			
 		builder.append("[");
-			
-		
+				
 
 		List<Fish> fList = fishDao.simulate(level, "열대어");
 		builder.append("[");
@@ -80,7 +77,6 @@ public class MenuController {
 		}
 		builder.append("],");
 
-		
 		
 		List<Fish> fList2 = fishDao.simulate(level, "해수어");
 		builder.append("[");
@@ -153,7 +149,7 @@ public class MenuController {
 
 		return "site/site";
 	}
-	
+
 	
 	@RequestMapping("wiki")
 	public String wiki() {

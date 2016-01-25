@@ -66,20 +66,18 @@
 	window.addEventListener("load", function() {
 		var request = new XMLHttpRequest();
 		var lis = document.querySelectorAll(".aaa");
-		//document.getElementById("li1").innerHTML = datas;
 		function liClick(event) {
 
 			event.target.style.background = "blue";
 			event.target.style.opacity = 0.5;
 
-			request.open("GET", "bowl2?lev=" + event.target.value, true);
+			request.open("GET", "bowl2?lev=" + event.target.dataset.lev, true);
 			request.send();
 
 			request.onreadystatechange = function() {
 				
 				if (request.readyState == 4) {
 					var datas = eval(request.responseText);
-					// document.getElementById("li1").innerHTML = datas;
 				}
 			}
 		}
@@ -124,7 +122,7 @@
 							<ul>
 								<c:forEach var="f" items="${list}">
 									<c:if test="${f.type=='냉수어'}">
-										<li class="aaa" value="${f.lev}">${f.name}</li>
+										<li class="aaa" data-lev="${f.lev}">${f.name}</li>
 									</c:if>
 								</c:forEach>
 							</ul>
@@ -135,7 +133,7 @@
 							<ul>
 								<c:forEach var="f" items="${list}">
 									<c:if test="${f.type=='해수어'}">
-										<li class="aaa" value="${f.lev}">${f.name}</li>
+										<li class="aaa" data-lev="${f.lev}">${f.name}</li>
 									</c:if>
 								</c:forEach>
 							</ul>
@@ -146,7 +144,7 @@
 							<ul>
 								<c:forEach var="f" items="${list}">
 									<c:if test="${f.type=='열대어'}">
-										<li class="aaa" value="${f.lev}">${f.name}</li>
+										<li class="aaa" data-lev="${f.lev}">${f.name}</li>
 									</c:if>
 								</c:forEach>
 							</ul>

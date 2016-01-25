@@ -25,4 +25,9 @@
 		INSERT INTO SITE(ssubject, scategory, scontent, link, spic1, spic2) VALUES
 		(#{ssubject},#{scategory},#{scontent},#{link},#{spic1},#{spic2})
 	</insert>
+	
+	
+	
+	
+	
 </mapper>

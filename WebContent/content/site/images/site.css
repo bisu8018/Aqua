@@ -1,4 +1,8 @@
 @CHARSET "UTF-8";
+@font-face {
+font-family: 'agency'; /* 폰트 패밀리 이름 주기*/
+src: url('agency_fb.ttf'); /*폰트 파일 주소*/
+} 
 html, body {
    height: 100%;
 	width: 100%;
@@ -87,73 +91,6 @@ footer {
 
 
 
-#header {
-	position:absolute;
-	float:left;
-	top:10px;
-	left:10px;
-	height:55px;
-	width:1004px;
-	background:#FFDE6B;
-	z-index:-50;	
-}
-
-
-#s{	
-	position:absolute;
-	float:left;
-	left:10px;
-	top:10px;
-	width:300px;
-	height:30px;	
-	line-height:30px;
-	font-weight: bold;
-	text-indent: 5px;
-	z-index:-20;
-}
-#b
-{
-	position:absolute;
-	float:left;
-	left:320px;
-	top:10px;
-	width:50px;
-	height:34px;
-	background:url('그림1.jpg') no-repeat center;
-	background-size:50px 34px;
-	text-indent:-999px; /* 글자 밀어내기 */
-	cursor:pointer;
-	border:1px solid black;
-	z-index:-20;	
-}
-#w
-{
-	position:absolute;
-	float:left;
-	left:375px;
-	top:10px;
-	width:50px;
-	height:34px;
-	background:url('그림2.png') no-repeat center;
-	background-size:50px 34px;
-	text-indent:-999px; /* 글자 밀어내기 */
-	cursor:pointer;
-	border:1px solid black;
-	z-index:-20;
-}
-
-#body2{
-	position:absolute;
-	z-index:-3;
-	float:left;
-	left:10px;
-	top:65px;
-	background:#FFD016;
-	width:1004px;
-	height:635px;
-	overflow:hidden;
-}
-
 #tab{
 	background: url('icon4.png') no-repeat center;
 	background-size: 40px 40px;
@@ -182,12 +119,20 @@ footer {
 	float: left;
 }
 #right{
-	width: 300px;
+	width: 270px;
 	height:100%;
-	background: #ff0000;
-	overflow: auto;
-	opacity: 0.5;
 	
+	overflow-x : hidden;
+	overflow-y : auto; 
+	
+	
+}
+#fake{
+	width: 25%;
+	height:100%;
+	position: absolute;
+	opacity: 0.5;
+	background: #ff0000;
 }
 #scroll{
 	height: 100%;
@@ -201,11 +146,68 @@ footer {
 	width: 100%;
 	background: #ff0000;
 	opacity: 0.5;
+	
+}
+#sub{
+	top: 0px;
+	height: 100px;
+	width: 700px;
+	left: 30px;
+	font-family: agency;
+	font-size: 80px;
+	font-weight: bold;
+	color: white;
+	letter-spacing: 2px;
+	opacity: 3;
+	position: absolute;
+	z-index: 400;
+	
 }
 #middle{
 	height: 45%;
 	width: 100%;
 	background: white;
+}
+#middle1{
+	left: 5%;
+	height: 15%;
+	width: 95%;
+	background: white;
+	font-family: agency;
+	position: relative;
+	font-size: 40px;
+	color: #0070C0;
+	font-weight: bold;
+}
+#middle2{
+	left: 5%;
+	height: 25%;
+	width: 95%;
+	background: white;
+	font-family: agency;
+	position: relative;
+	font-size: 50px;
+	font-weight: bold;
+}
+#middle2:HOVER{	
+	left: 5%;
+	height: 25%;
+	width: 95%;
+	background: white;
+	font-family: agency;
+	position: relative;
+	font-size: 50px;
+	font-weight: bold;
+    text-decoration:underline; 
+}
+#middle3{
+	left: 5%;
+	height: 60%;
+	width: 95%;
+	background: white;
+	font-family: agency;
+	position: relative;
+	font-size: 30px;
 }
 #bottom{
 	height:40%;
@@ -220,6 +222,8 @@ footer {
 	height:250px;
 	position: relative;
 	z-index: 9;
+	left: 30px;
+	top: 30px;
 }
 #right > ul > li {
 	
