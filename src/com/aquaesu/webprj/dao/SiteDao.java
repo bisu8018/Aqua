@@ -6,9 +6,6 @@ import java.util.List;
 import com.aquaesu.webprj.vo.Site;
 
 public interface SiteDao {
-	public Site getSite(String ssubject) throws SQLException;
-	public List<Site> getSite() throws SQLException;
-	public List<Site> getSite(int page) throws SQLException;
 	public List<Site> getSite(int page, String field, String query) throws SQLException;
 	public int update(Site site) throws SQLException;
 	public int delete(Site site);

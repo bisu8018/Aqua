@@ -132,14 +132,29 @@ public class MenuController {
 	}
 
 	@RequestMapping(value = "site", method = RequestMethod.GET)
-	public String site(Model model) throws SQLException {
-		List<Site> sList = siteDao.getSite(1, "Ssubject", "");
+	public String site(Model model, String p, String f, String q) throws SQLException {
+		
+		int page = 1;
+		String field = "ssubject";
+		String query = "";
+		
+		if (p != null && !p.equals(""))
+			page = Integer.parseInt(p);
+		
+		if(f !=null && !f.equals(""))
+			field = f;
+		
+		if(q !=null && !q.equals(""))
+			query = q;
+		
+		List<Site> sList = siteDao.getSite(page, field, query);
 
 		model.addAttribute("list", sList);
 
 		return "site/site";
 	}
-
+	
+	
 	@RequestMapping("wiki")
 	public String wiki() {
 		return "wiki/wiki";

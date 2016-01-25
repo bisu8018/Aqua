@@ -66,7 +66,6 @@
 	window.addEventListener("load", function() {
 		var request = new XMLHttpRequest();
 		var lis = document.querySelectorAll(".aaa");
-		var status = 0;
 		//document.getElementById("li1").innerHTML = datas;
 		function liClick(event) {
 

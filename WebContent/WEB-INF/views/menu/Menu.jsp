@@ -108,7 +108,6 @@ var status = '${pageContext.request.userPrincipal.name}';
 		</div>
 	</div>
 	<footer>
-
 	<div id="left-footer"></div>
 	<div id="center-footer">
 		<small>Copyright © 2015 AQUA ESU ALL Rights Reserved</small>
