@@ -79,7 +79,6 @@
 				
 				if (request.readyState == 4) {
 					var datas = eval(request.responseText);
-					alert(datas[0][0].name);
 					// document.getElementById("li1").innerHTML = datas;
 				}
 			}
@@ -154,7 +153,15 @@
 						</div>
 					</div>
 				</div>
-				<div id="container-3"></div>
+				<div id="container-3">
+				
+				<div id="w">
+				<div id="b"></div>
+				<input type="button" id="reset" value="RESET"/>
+				<input type="button" id="put" value="PUT IN"/>
+				</div>
+				
+				</div>
 			</div>
 		</div>
 		<div id="right-body">
