@@ -72,13 +72,16 @@ function Info(title,category,link,content,spic){
    var div5 = document.querySelector("#bottom");
    var old=document.querySelector("iframe");
    var iframe = document.createElement("iframe");
-   iframe.style.width = "735px";
+   iframe.style.width = "760px";
    iframe.style.height="268px";
+   iframe.style.border="none";
    iframe.src=spic;
+   
    if(old!=null)
       div5.replaceChild(iframe,old);
    else
       div5.appendChild(iframe);
+}
 </script>
 </head>
 <body id="abody">
@@ -116,12 +119,10 @@ function Info(title,category,link,content,spic){
 
 					<div id="middle">
 						<div id="middle1"></div>
-						<div id="middle2"></div>
+						<a href=""><div id="middle2"></div></a>
 						<div id="middle3"></div>
-
-
 					</div>
-					<div id="bottom"><img src="${s.spic2}"/></div>
+					<div id="scroll2"><div id="bottom"></div></div>
 
 				</div>
 				<div id="scroll">
@@ -130,7 +131,7 @@ function Info(title,category,link,content,spic){
 						<c:forEach var="s" items="${list}">
 							<ul>
 								<li class="aaa"
-									onclick="Info('${s.ssubject}','${s.scategory}', '${s.link}', '${s.scontent}'),'${s.spic2}'"><img src="${pageContext.request.contextPath}/content/site/images/${s.spic1}"/></li>
+									onclick="Info('${s.ssubject}','${s.scategory}', '${s.link}', '${s.scontent}','${s.spic2}')"><img src="${pageContext.request.contextPath}/content/site/images/${s.spic1}"/></li>
 							</ul>
 						</c:forEach>
 					</div>
