@@ -41,7 +41,8 @@
          
     <bean name="BoardDao"
   class="com.aquaesu.webprj.dao.mybatis.MyBatisBoardDao"/>
-  
+  <bean name="WikiDao"
+  class="com.aquaesu.webprj.dao.mybatis.MyBatisWikiDao"/>
   </beans>
   
   

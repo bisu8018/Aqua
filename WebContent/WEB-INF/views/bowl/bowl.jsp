@@ -18,13 +18,13 @@
 <link
 	href="${pageContext.request.contextPath}/content/bowl/css/bowlStyle.css"
 	type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="/Aqua/content/home/js/menu-icon.js">
-	
-</script>
-<script>
-	var status = ('${pageContext.request.userPrincipal.name}');
-</script>
-
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script type="text/javascript" src="/Aqua/content/home/js/menu-icon.js"></script>
+<script>var status = ('${pageContext.request.userPrincipal.name}');</script>
 <script>
 	window.onload = function() {
 		var tab = document.querySelector("#tab");
@@ -75,7 +75,7 @@
 			request.send();
 
 			request.onreadystatechange = function() {
-				
+
 				if (request.readyState == 4) {
 					var datas = eval(request.responseText);
 				}
@@ -152,13 +152,13 @@
 					</div>
 				</div>
 				<div id="container-3">
-				
-				<div id="w">
-				<div id="b"></div>
-				<input type="button" id="reset" value="RESET"/>
-				<input type="button" id="put" value="PUT IN"/>
-				</div>
-				
+
+					<div id="w">
+						<div id="b"></div>
+						<input type="button" id="reset" value="RESET" /> <input
+							type="button" id="put" value="PUT IN" />
+					</div>
+
 				</div>
 			</div>
 		</div>

@@ -1,54 +1,54 @@
 package com.aquaesu.webprj.vo;
 
 public class Wiki {
-	private String Date1;
-	private String Date2;
-	private String Wcontent;
-	private String Wcategory;
-	private String Wpic;
-	private String Wsubject;
-	private String Wemail;
+	private String date1;
+	private String date2;
+	private String wcontent;
+	private String wcategory;
+	private String wpic;
+	private String wsubject;
+	private String wemail;
 	public String getWemail() {
-		return Wemail;
+		return wemail;
 	}
 	public void setWemail(String wemail) {
-		Wemail = wemail;
+		this.wemail = wemail;
 	}
 	public String getDate1() {
-		return Date1;
+		return date1;
 	}
 	public void setDate1(String date1) {
-		Date1 = date1;
+		this.date1 = date1;
 	}
 	public String getDate2() {
-		return Date2;
+		return date2;
 	}
 	public void setDate2(String date2) {
-		Date2 = date2;
+		this.date2 = date2;
 	}
 	public String getWcontent() {
-		return Wcontent;
+		return wcontent;
 	}
 	public void setWcontent(String wcontent) {
-		Wcontent = wcontent;
+		this.wcontent = wcontent;
 	}
 	public String getWcategory() {
-		return Wcategory;
+		return wcategory;
 	}
 	public void setWcategory(String wcategory) {
-		Wcategory = wcategory;
+		this.wcategory = wcategory;
 	}
 	public String getWpic() {
-		return Wpic;
+		return wpic;
 	}
 	public void setWpic(String wpic) {
-		Wpic = wpic;
+		this.wpic = wpic;
 	}
 	public String getWsubject() {
-		return Wsubject;
+		return wsubject;
 	}
 	public void setWsubject(String wsubject) {
-		Wsubject = wsubject;
+		this.wsubject = wsubject;
 	}
 
 }

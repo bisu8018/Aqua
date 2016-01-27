@@ -15,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.aquaesu.webprj.dao.FishDao;
 import com.aquaesu.webprj.dao.SiteDao;
+import com.aquaesu.webprj.dao.WikiDao;
 import com.aquaesu.webprj.vo.Fish;
 import com.aquaesu.webprj.vo.Members;
 import com.aquaesu.webprj.vo.Site;
+import com.aquaesu.webprj.vo.Wiki;
 
 @Controller
 @RequestMapping("fake")
@@ -28,6 +30,9 @@ public class MenuController {
 
 	@Autowired
 	private SiteDao siteDao;
+	
+	@Autowired
+	private WikiDao wikiDao;
 
 	@RequestMapping("Menu")
 	public String home() {
@@ -151,8 +156,12 @@ public class MenuController {
 	}
 
 	
-	@RequestMapping("wiki")
-	public String wiki() {
+	@RequestMapping(value = "wiki", method = RequestMethod.GET)
+	public String wiki(Model model) throws SQLException {
+		List<Wiki> wList = wikiDao.getWiki(1, "wsubject", "");
+
+		model.addAttribute("list", wList);
+		System.out.println(wList.get(1).getWcategory());
 		return "wiki/wiki";
 	}
 

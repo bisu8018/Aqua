@@ -17,71 +17,91 @@
 <link
 	href="${pageContext.request.contextPath}/content/site/css/site.css"
 	type="text/css" rel="stylesheet" />
-<script type="text/javascript" src="/Aqua/content/home/js/menu-icon.js">
-           
-</script>
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 
-<script>
-   window.onload = function() {
-      var tab = document.querySelector("#tab");
-
-      tab.onclick = function() {
-
-         var dlg = document.createElement("div");
-         dlg.style.width = "400px";
-         dlg.style.height = "400px";
-         dlg.style.position = "fixed";
-         dlg.style.background = "white";
-         dlg.style.bottom = "180px";
-         dlg.style.right = "90px";
-         document.body.appendChild(dlg);
-         var request = new XMLHttpRequest();
-         request.onreadystatechange = function() {
-            if (request.readyState == 4) {
-               dlg.innerHTML = request.responseText;
-            }
-         };
-         request.open("GET", "menuPartial", true);
-         request.send(null);
-
-         var body = document.querySelector("#abody");
-         body.onclick = function() {
-            closeDialog(dlg);
-         }
-
-         event.stopPropagation();
-         return false;
-      };
-      var closeDialog = function(dlg) {
-         document.body.removeChild(dlg);
-      };
-   };
-</script>
-<script>   
-function Info(title,category,link,content,spic){       
-	var div = document.querySelector("#sub");   
-   div.innerText=title;  
-   var div2 = document.querySelector("#middle1");     
-   div2.innerText=category;
-   var div3 = document.querySelector("#middle2");     
-   div3.innerText=link;
-   var div4 = document.querySelector("#middle3");     
-   div4.innerText=content;
-   var div5 = document.querySelector("#bottom");
-   var old=document.querySelector("iframe");
-   var iframe = document.createElement("iframe");
-   iframe.style.width = "760px";
-   iframe.style.height="268px";
-   iframe.style.border="none";
-   iframe.src=spic;
-   
-   if(old!=null)
-      div5.replaceChild(iframe,old);
-   else
-      div5.appendChild(iframe);
+<style>
+#scroll .ui-selecting {
+	background: #FECA40;
 }
+
+#scroll .ui-selected {
+	background: #F39814;
+	color: white;
+}
+</style>
+
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script type="text/javascript" src="/Aqua/content/home/js/menu-icon.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-2.2.0.min.js"></script>
+<script>
+	window.onload = function() {
+		var tab = document.querySelector("#tab");
+
+		tab.onclick = function() {
+
+			var dlg = document.createElement("div");
+			dlg.style.width = "400px";
+			dlg.style.height = "400px";
+			dlg.style.position = "fixed";
+			dlg.style.background = "white";
+			dlg.style.bottom = "180px";
+			dlg.style.right = "90px";
+			document.body.appendChild(dlg);
+			var request = new XMLHttpRequest();
+			request.onreadystatechange = function() {
+				if (request.readyState == 4) {
+					dlg.innerHTML = request.responseText;
+				}
+			};
+			request.open("GET", "menuPartial", true);
+			request.send(null);
+
+			var body = document.querySelector("#abody");
+			body.onclick = function() {
+				closeDialog(dlg);
+			}
+
+			event.stopPropagation();
+			return false;
+		};
+		var closeDialog = function(dlg) {
+			document.body.removeChild(dlg);
+		};
+	};
+</script>
+<script>
+	function Info(title, category, link, content, spic) {
+		var div = document.querySelector("#sub");
+		div.innerText = title;
+		var div2 = document.querySelector("#middle1");
+		div2.innerText = category;
+		var div3 = document.querySelector("#middle2 a");
+		div3.innerText = link;
+		var a = document.querySelector("a");
+		a.href = link;
+		var div4 = document.querySelector("#middle3");
+		div4.innerText = content;
+		var div5 = document.querySelector("#bottom");
+		var old = document.querySelector("iframe");
+		var iframe = document.createElement("iframe");
+		iframe.style.width = "760px";
+		iframe.style.height = "268px";
+		iframe.style.border = "none";
+		iframe.src = spic;
+
+		if (old != null)
+			div5.replaceChild(iframe, old);
+		else
+			div5.appendChild(iframe);
+	}
+
+	$(function() {
+
+		$("#scroll").selectable();
+
+	});
 </script>
 </head>
 <body id="abody">
@@ -113,25 +133,29 @@ function Info(title,category,link,content,spic){
 			<div id="container">
 				<div id="left">
 
-					<div id="top">
-					
-					</div><div id="sub"></div>
+					<div id="top"></div>
+					<div id="sub"></div>
 
 					<div id="middle">
 						<div id="middle1"></div>
-						<a href=""><div id="middle2"></div></a>
+						<div id="middle2">
+							<a href></a>
+						</div>
 						<div id="middle3"></div>
 					</div>
-					<div id="scroll2"><div id="bottom"></div></div>
+					<div id="scroll2">
+						<div id="bottom"></div>
+					</div>
 
 				</div>
 				<div id="scroll">
-				<div id="fake"></div>
+					<div id="fake"></div>
 					<div id="right">
 						<c:forEach var="s" items="${list}">
-							<ul>
+							<ul id="bbb">
 								<li class="aaa"
-									onclick="Info('${s.ssubject}','${s.scategory}', '${s.link}', '${s.scontent}','${s.spic2}')"><img src="${pageContext.request.contextPath}/content/site/images/${s.spic1}"/></li>
+									onclick="Info('${s.ssubject}','${s.scategory}', '${s.link}', '${s.scontent}','${s.spic2}')"><img
+									src="${pageContext.request.contextPath}/content/site/images/${s.spic1}" /></li>
 							</ul>
 						</c:forEach>
 					</div>
