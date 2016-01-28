@@ -85,19 +85,23 @@
 					<input type="text" id="text" /> <input type="submit" id="search" />
 					<input type="button" id="write" />
 				</div>
+				<div id="fake"></div>
 				<div id="down">
+				
 					<c:forEach var="w" items="${list}">
 					
 						<div id="list">
 							<div id="a">
 							
 								<img
-									src="${pageContext.request.contextPath}/content/wiki/images/${w.wcategory}" width="100px" height="100px"/>
+									src="${pageContext.request.contextPath}/content/wiki/images/${w.wcategory}" 
+									style="position:relative; left:10px; top:15px; text-align:center; width:100px; height:100px"/>
 							</div>
 							<div id="b">${w.wsubject}</div>
 							<div id="c"></div>
 							<div id="d"></div>
 						</div>
+						<div id="content">${w.wcontent}</div>
 					</c:forEach>
 				</div>
 			</div>

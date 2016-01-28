@@ -161,7 +161,6 @@ public class MenuController {
 		List<Wiki> wList = wikiDao.getWiki(1, "wsubject", "");
 
 		model.addAttribute("list", wList);
-		System.out.println(wList.get(1).getWcategory());
 		return "wiki/wiki";
 	}
 

@@ -155,7 +155,7 @@
 							<ul id="bbb">
 								<li class="aaa"
 									onclick="Info('${s.ssubject}','${s.scategory}', '${s.link}', '${s.scontent}','${s.spic2}')"><img
-									src="${pageContext.request.contextPath}/content/site/images/${s.spic1}" /></li>
+									src="${pageContext.request.contextPath}/content/site/images/${s.spic1}" style="cursor: pointer;"/></li>
 							</ul>
 						</c:forEach>
 					</div>
