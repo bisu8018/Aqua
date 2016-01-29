@@ -17,6 +17,10 @@
 <link
 	href="${pageContext.request.contextPath}/content/wiki/css/wikiStyle.css"
 	type="text/css" rel="stylesheet" />
+	<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script type="text/javascript" src="/Aqua/content/home/js/menu-icon.js"></script>
 <script>
 	window.onload = function() {
@@ -51,20 +55,26 @@
 	};
 </script>
 <script>
-   window.addEventListener("load", function() {
-      var request = new XMLHttpRequest();
-      var b = document.querySelectorAll("#b");
-      var contents = document.querySelectorAll("#content");
-      var lists = document.querySelectorAll("#list");
-      
-      function liClick(event) {
-    		  contents.style.height = "300px";
-      };
-      for (var i = 0; i < b.length; i++) {
-         b[i].onclick = liClick;
-        }
+	window.addEventListener("load", function() {
+		var request = new XMLHttpRequest();
+		var b = document.querySelectorAll("#b");
+		var lists = document.querySelectorAll("#list");
+		
+	
 
-   });
+		function liClick(event) {
+		//event.target.parentNode.lastChild.style.display = "block";
+			//parentNode.lastChild.style.height = "600px";
+			event.target.parentNode.querySelector("div:last-child").style.height = "400px";
+			event.target.parentNode.style.height = "530px";
+			//event.target.parentNode.lastChild.style.width = "20px";
+			
+		}
+		for (var i = 0; i < b.length; i++) {
+			${b[i]}toggle = liClick;
+			
+		}
+	});
 </script>
 
 </head>
@@ -110,8 +120,8 @@
 							<div id="b">${w.wsubject}</div>
 							<div id="c"></div>
 							<div id="d"></div>
+							<div id="content">${w.wcontent}</div>
 						</div>
-						<div id="content">${w.wcontent}</div>
 					</c:forEach>
 				</div>
 			</div>

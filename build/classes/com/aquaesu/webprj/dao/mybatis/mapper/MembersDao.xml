@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aquaesu.webprj.dao.MembersDao">
+  <select id="getMembers" resultType="com.aquaesu.webprj.vo.Members">
+    SELECT * FROM 
+      (SELECT 
+      ROW_NUMBER() OVER
+           (ORDER BY Email DESC) NUM,MEMBERS.* FROM MEMBERS 
+           WHERE ${param2} LIKE '%${param3}%' 
+        )A 
+        WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
+  </select>
+  
+    <update id="update">      
+        <!-- UPDATE MEMBERS SET NAME = #{param1.name},WHERE MID = #{param1.mid}-->
+        UPDATE MEMBERS SET bpwd = #{bpwd} WHERE email=#{email}     
+        UPDATE MEMBERS SET age = #{age} WHERE email=#{email} 
+        UPDATE MEMBERS SET sex = #{sex} WHERE email=#{email} 
+        UPDATE MEMBERS SET nation = #{nation} WHERE email=#{email}                         
+   </update>
+   
+   <delete id="delete">
+        DELETE FROM MEMBERS WHERE email = #{email}
+   </delete>
+   
+   <insert id="insert">
+        INSERT INTO MEMBERS(email, bpwd, age, sex, nation)
+        VALUES(#{email},#{bpwd},#{age},#{sex},#{nation})
+     </insert> 
+     
+     <select id="getMembersCount" resultType="integer">
+		SELECT COUNT(EMAIL) FROM MEMBERS WHERE ${param1} LIKE '%${param2}%'
+	</select>
+     
+</mapper>

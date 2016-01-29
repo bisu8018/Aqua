@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aquaesu.webprj.dao.SiteDao">
+	<select id="getSite" resultType="com.aquaesu.webprj.vo.Site">
+		SELECT * FROM
+		(SELECT
+		ROW_NUMBER() OVER
+		(ORDER BY ssubject DESC) NUM,SITE.* FROM SITE
+		WHERE ${param2} LIKE '%${param3}%'
+		)A
+		WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
+	</select>
+	<update id="update">
+		<!-- UPDATE MEMBERS SET NAME = #{param1.name},WHERE MID = #{param1.mid} -->
+		UPDATE MEMBERS SET(ssubject, scategory, scontent, link, spic1, spic2)=
+		(#{ssubject},#{scategory},#{scontent},#{link},#{spic1},#{spic2}) WHERE
+		ssubject= #{ssubject}
+	</update>
+	<delete id="delete">
+		DELETE FROM SITE WHERE ssubject = #{ssubject}
+	</delete>
+	<insert id="insert">
+		INSERT INTO SITE(ssubject, scategory, scontent, link, spic1, spic2) VALUES
+		(#{ssubject},#{scategory},#{scontent},#{link},#{spic1},#{spic2})
+	</insert>
+	
+	
+	
+	
+	
+</mapper>

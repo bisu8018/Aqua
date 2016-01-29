@@ -184,7 +184,6 @@ footer {
 	width: 100%;
 	height: 92%;
 	position: relative;
-	
 	overflow: auto;
 }
 #fake{
@@ -232,18 +231,18 @@ footer {
 	height: 130px;
 	position: relative;
 	margin-top: 100px;
-	
+	margin-bottom: 100px;
 	margin-left: 85px;
-	
+	transition-duration: 2s;
 }
 #a{
-	height: 100%;
+	height: 130px;
 	width: 15%;
 	float:left;
 	border-right: 5px solid black; 
 }
 #b{
-	height: 100%;
+	height: 130px;
 	width: 64%;
 	float:left;
 	font-size: 40px;
@@ -253,25 +252,25 @@ footer {
 	left: 40px;
 }
 #c{
-	height: 100%;
+	height: 130px;
 	width: 10%;
 	float:left;
 	background: url("write.png") no-repeat 20px 42px;
 	background-size: 47px 45px;
 }
 #d{
-	height: 100%;
+	height: 130px;
 	width: 10%;
 	float:left;
 	background: url("put.png") no-repeat 8px 37px;
 	background-size: 52px 50px;
+	overflow-x: hidden;
 }
 #content{
 	background: white;
-	width: 800px;
-	position: relative;
-	margin-bottom: 100px;
-	margin-left: 85px;
+	width: inherit;
 	transition-duration: 2s;
-	height:0px;
+	overflow: auto;
+	height: 0px;
+	position: relative;
 }

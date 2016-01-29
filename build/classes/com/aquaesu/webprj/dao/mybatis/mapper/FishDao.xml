@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.aquaesu.webprj.dao.FishDao">
+	<select id="getFish" resultType="com.aquaesu.webprj.vo.Fish">
+		SELECT * FROM
+		(SELECT
+		ROW_NUMBER() OVER
+		(ORDER BY NAME DESC) NUM,FISH.* FROM FISH
+		WHERE ${param2} LIKE '%${param3}%'
+		)A
+		WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
+	</select>
+
+	<select id="getFishs" resultType="com.aquaesu.webprj.vo.Fish">
+		SELECT * FROM FISH;
+	</select>
+
+	<select id="simulate" resultType="com.aquaesu.webprj.vo.Fish" >
+		SELECT * FROM FISH WHERE
+		<if test="param1==1">
+		<if test="param2=='열대어'">lev=1 AND type='열대어'</if>
+		<if test="param2=='해수어'">lev=1 AND type='해수어'</if>
+		<if test="param2=='냉수어'">lev=1 AND type='냉수어'</if>
+		</if>
+		<if test="param1==2">
+		<if test="param2=='열대어'">lev=2 AND type='열대어'</if>
+		<if test="param2=='해수어'">lev=2 AND type='해수어'</if>
+		<if test="param2=='냉수어'">lev=2 AND type='냉수어'</if>
+		</if>
+		<if test="param1==3">
+		<if test="param2=='열대어'">lev=3 AND type='열대어'</if>
+		<if test="param2=='해수어'">lev=3 AND type='해수어'</if>
+		<if test="param2=='냉수어'">lev=3 AND type='냉수어'</if>
+		</if>
+		<if test="param1==4">
+		<if test="param2=='열대어'">lev=4 AND type='열대어'</if>
+		<if test="param2=='해수어'">lev=4 AND type='해수어'</if>
+		<if test="param2=='냉수어'">lev=4 AND type='냉수어'</if>
+		</if>
+		<if test="param1==5">
+		<if test="param2=='열대어'">lev=5 AND type='열대어'</if>
+		<if test="param2=='해수어'">lev=5 AND type='해수어'</if>
+		<if test="param2=='냉수어'">lev=5 AND type='냉수어'</if>
+		</if>
+	</select>
+
+	<update id="update">
+		<!-- UPDATE MEMBERS SET NAME = #{param1.name},WHERE MID = #{param1.mid} -->
+		UPDATE FISH SET lev = #{lev} WHERE name=#{name}
+		UPDATE FISH SET type = #{type} WHERE name=#{name}
+		UPDATE FISH SET fpic = #{fpic} WHERE name=#{name}
+	</update>
+
+	<delete id="delete">
+		DELETE FROM FISH WHERE name = #{name}
+	</delete>
+
+	<insert id="insert">
+		INSERT INTO FISH(name, lev, type, fpic)
+		VALUES(#{name},#{lev},#{type},#{fpic})
+	</insert>
+
+	<select id="getFishCount" resultType="integer">
+		SELECT COUNT(name) FROM
+		FISH WHERE ${param1} LIKE '%${param2}%'
+	</select>
+</mapper>
