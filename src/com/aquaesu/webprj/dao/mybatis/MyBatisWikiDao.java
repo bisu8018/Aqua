@@ -20,7 +20,6 @@ public class MyBatisWikiDao implements WikiDao {
 		
 		WikiDao dao=sqlSession.getMapper(WikiDao.class); //세션을 통해 MemberDao의 정보를 전해줌
 	      List<Wiki> list= dao.getWiki(page,field,query);
-	      System.out.println(list.get(1).getWsubject()+"mybatis");
 		return list;
 	}
 

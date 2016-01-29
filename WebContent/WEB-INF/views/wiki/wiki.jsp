@@ -18,7 +18,6 @@
 	href="${pageContext.request.contextPath}/content/wiki/css/wikiStyle.css"
 	type="text/css" rel="stylesheet" />
 <script type="text/javascript" src="/Aqua/content/home/js/menu-icon.js"></script>
-
 <script>
 	window.onload = function() {
 		var tab = document.querySelector("#tab");
@@ -52,8 +51,22 @@
 	};
 </script>
 <script>
-	
+   window.addEventListener("load", function() {
+      var request = new XMLHttpRequest();
+      var b = document.querySelectorAll("#b");
+      var contents = document.querySelectorAll("#content");
+      var lists = document.querySelectorAll("#list");
+      
+      function liClick(event) {
+    		  contents.style.height = "300px";
+      };
+      for (var i = 0; i < b.length; i++) {
+         b[i].onclick = liClick;
+        }
+
+   });
 </script>
+
 </head>
 <body id="abody">
 	<div id="beta"></div>
@@ -87,15 +100,12 @@
 				</div>
 				<div id="fake"></div>
 				<div id="down">
-				
 					<c:forEach var="w" items="${list}">
-					
 						<div id="list">
 							<div id="a">
-							
 								<img
-									src="${pageContext.request.contextPath}/content/wiki/images/${w.wcategory}" 
-									style="position:relative; left:10px; top:15px; text-align:center; width:100px; height:100px"/>
+									src="${pageContext.request.contextPath}/content/wiki/images/${w.wcategory}"
+									style="position: relative; left: 10px; top: 15px; text-align: center; width: 100px; height: 100px" />
 							</div>
 							<div id="b">${w.wsubject}</div>
 							<div id="c"></div>

@@ -258,7 +258,6 @@ footer {
 	float:left;
 	background: url("write.png") no-repeat 20px 42px;
 	background-size: 47px 45px;
-	
 }
 #d{
 	height: 100%;
@@ -273,5 +272,6 @@ footer {
 	position: relative;
 	margin-bottom: 100px;
 	margin-left: 85px;
-	display: none;
+	transition-duration: 2s;
+	height:0px;
 }

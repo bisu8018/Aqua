@@ -12,13 +12,7 @@
         )A 
         WHERE NUM BETWEEN 1+(#{param1}-1)*10 AND #{param1}*10
   </select>
- <update id="update">      
-        <!-- UPDATE MEMBERS SET NAME = #{param1.name},WHERE MID = #{param1.mid}-->
-        UPDATE Board SET bpic= #{bpic} WHERE bemail= #{bemail}                     
-   </update>
-   <delete id="delete">
-        DELETE FROM Board WHERE bemail = #{bemail}
-   </delete>
+
    <insert id="insert">
         INSERT INTO Board(bpic, bcontent, bemail,x,y) VALUES(#{bpic},#{bcontent},#{bemail},#{x},#{y})
      </insert> 
