@@ -20,6 +20,7 @@ import com.aquaesu.webprj.vo.Fish;
 import com.aquaesu.webprj.vo.Members;
 import com.aquaesu.webprj.vo.Site;
 import com.aquaesu.webprj.vo.Wiki;
+import com.google.gson.Gson;
 
 @Controller
 @RequestMapping("fake")
@@ -68,7 +69,7 @@ public class MenuController {
 		builder.append("[");
 				
 
-		List<Fish> fList = fishDao.simulate(level, "¿­´ë¾î");
+		List<Fish> fList = fishDao.simulate(level, "ì—´ëŒ€ì–´");
 		builder.append("[");
 		for (int i = 0; i < fList.size(); i++) {
 			Fish f = fList.get(i);
@@ -83,7 +84,7 @@ public class MenuController {
 		builder.append("],");
 
 		
-		List<Fish> fList2 = fishDao.simulate(level, "ÇØ¼ö¾î");
+		List<Fish> fList2 = fishDao.simulate(level, "í•´ìˆ˜ì–´");
 		builder.append("[");
 		for (int i = 0; i < fList2.size(); i++) {
 			Fish f = fList2.get(i);
@@ -100,7 +101,7 @@ public class MenuController {
 		
 		
 		
-		List<Fish> fList3 = fishDao.simulate(level, "³Ã¼ö¾î");
+		List<Fish> fList3 = fishDao.simulate(level, "ëƒ‰ìˆ˜ì–´");
 		builder.append("[");
 		for (int i = 0; i < fList3.size(); i++) {
 			Fish f = fList3.get(i);
@@ -155,13 +156,24 @@ public class MenuController {
 		return "site/site";
 	}
 
-	
-	@RequestMapping(value = "wiki", method = RequestMethod.GET)
-	public String wiki(Model model) throws SQLException {
-		List<Wiki> wList = wikiDao.getWiki(1, "wsubject", "");
-
-		model.addAttribute("list", wList);
+	@RequestMapping("wiki")
+	public String wiki() {
 		return "wiki/wiki";
+	}
+	
+	@RequestMapping(value = "wikiJSON", method = RequestMethod.GET)
+	public void wiki(String p, PrintWriter out) throws SQLException {
+		 int page = 1;
+
+	      if (p != null && !p.equals(""))
+
+	         page = Integer.parseInt(p);
+
+	 
+
+	      List<Wiki> list = wikiDao.getWiki(1, "wsubject", "");
+	      Gson gson = new Gson();
+	      out.println(gson.toJson(list));
 	}
 
 }

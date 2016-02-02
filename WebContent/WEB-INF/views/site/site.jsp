@@ -77,10 +77,14 @@
 		div.innerText = title;
 		var div2 = document.querySelector("#middle1");
 		div2.innerText = category;
+		
 		var div3 = document.querySelector("#middle2 a");
+		
 		div3.innerText = link;
-		var a = document.querySelector("a");
-		a.href = link;
+		var a = document.getElementById("href");
+		a.setAttribute('href', link);
+
+		
 		var div4 = document.querySelector("#middle3");
 		div4.innerText = content;
 		var div5 = document.querySelector("#bottom");
@@ -139,7 +143,7 @@
 					<div id="middle">
 						<div id="middle1"></div>
 						<div id="middle2">
-							<a href></a>
+							<a href="#" id="href"></a>
 						</div>
 						<div id="middle3"></div>
 					</div>

@@ -7,7 +7,7 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="my" tagdir="/WEB-INF/tags"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
+<html ng-app="wiki">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>wiki</title>
@@ -17,10 +17,15 @@
 <link
 	href="${pageContext.request.contextPath}/content/wiki/css/wikiStyle.css"
 	type="text/css" rel="stylesheet" />
-	<link rel="stylesheet"
-	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+
+<link rel="stylesheet"
+	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.9/angular-animate.min.js"></script>
 <script type="text/javascript" src="/Aqua/content/home/js/menu-icon.js"></script>
 <script>
 	window.onload = function() {
@@ -55,30 +60,54 @@
 	};
 </script>
 <script>
-	window.addEventListener("load", function() {
-		var request = new XMLHttpRequest();
-		var b = document.querySelectorAll("#b");
-		var lists = document.querySelectorAll("#list");
-		
-	
+	/* window
+			.addEventListener(
+					"load",
+					function() {
+						var request = new XMLHttpRequest();
+						var b = document.querySelectorAll("#b");
+						var lists = document.querySelectorAll("#list");
 
-		function liClick(event) {
-		//event.target.parentNode.lastChild.style.display = "block";
-			//parentNode.lastChild.style.height = "600px";
-			event.target.parentNode.querySelector("div:last-child").style.height = "400px";
-			event.target.parentNode.style.height = "530px";
-			//event.target.parentNode.lastChild.style.width = "20px";
-			
-		}
-		for (var i = 0; i < b.length; i++) {
-			b[i].onclick = liClick;
-			
-		}
+						function liClick(event) {
+							
+							event.target.parentNode
+									.querySelector("div:last-child").style.height = "400px";
+							event.target.parentNode.style.height = "530px";
+							function liClick(event) {
+								event.target.parentNode
+								.querySelector("div:last-child").style.height = "130px";
+						event.target.parentNode.style.height = "0px";
+								
+							}
+
+						}
+						for (var i = 0; i < b.length; i++) {
+							b[i].onclick = liClick;
+						}
+
+					}) ;*/
+	var wikiModule = angular.module("wiki", [ "ngAnimate" ]);
+
+					wikiModule.controller('wiki-controller', function($scope, $http) {
+		$scope.list = null;
+		$scope.test=false;
+		
+		$http({
+			method : 'GET',
+			url : '/Aqua/fake/wikiJSON'
+		}).then(function successCallback(response) {
+			$scope.list = response.data;
+		}, function errorCallback(response) {
+			alert("실패");
+		});
+
+		$scope.toggleWiki = function() {
+		};
+
 	});
 </script>
-
 </head>
-<body id="abody">
+<body id="abody" ng-controller="wiki-controller">
 	<div id="beta"></div>
 	<header></header>
 	<div id="body">
@@ -110,19 +139,17 @@
 				</div>
 				<div id="fake"></div>
 				<div id="down">
-					<c:forEach var="w" items="${list}">
-						<div id="list">
+						<div id="list" ng-repeat="w in list" ng-init="a=[]">
 							<div id="a">
 								<img
-									src="${pageContext.request.contextPath}/content/wiki/images/${w.wcategory}"
+									src="${pageContext.request.contextPath}/content/wiki/images/{{w.wcategory}}"
 									style="position: relative; left: 10px; top: 15px; text-align: center; width: 100px; height: 100px" />
 							</div>
-							<div id="b">${w.wsubject}</div>
-							<div id="c"></div>
+						<div id="b" ng-click="a[$index]=!a[$index]" ng-bind="w.wsubject">{{$index}}</div>
+						<div id="c"></div>
 							<div id="d"></div>
-							<div id="content">${w.wcontent}</div>
+							<div id="content" ng-show="a[$index]" ng-bind="w.wcontent">$index</div>
 						</div>
-					</c:forEach>
 				</div>
 			</div>
 		</div>

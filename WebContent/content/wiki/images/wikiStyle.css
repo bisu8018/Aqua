@@ -233,7 +233,7 @@ footer {
 	margin-top: 100px;
 	margin-bottom: 100px;
 	margin-left: 85px;
-	transition-duration: 2s;
+	transition-duration: 1s;
 }
 #a{
 	height: 130px;
@@ -242,14 +242,14 @@ footer {
 	border-right: 5px solid black; 
 }
 #b{
-	height: 130px;
+	height: 100px;
 	width: 64%;
 	float:left;
 	font-size: 40px;
 	font-weight: bold;
 	position: relative;
-	top: 30px;
 	left: 40px;
+	padding-top: 30px; 
 }
 #c{
 	height: 130px;
@@ -269,8 +269,8 @@ footer {
 #content{
 	background: white;
 	width: inherit;
-	transition-duration: 2s;
+	transition-duration: 1s;
 	overflow: auto;
-	height: 0px;
+	height: 40px;
 	position: relative;
 }
