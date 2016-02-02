@@ -71,7 +71,7 @@
 			
 		}
 		for (var i = 0; i < b.length; i++) {
-			${b[i]}toggle = liClick;
+			b[i].onclick = liClick;
 			
 		}
 	});
