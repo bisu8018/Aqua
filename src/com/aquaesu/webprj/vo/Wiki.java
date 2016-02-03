@@ -8,6 +8,13 @@ public class Wiki {
 	private String wpic;
 	private String wsubject;
 	private String wemail;
+	private String wcolor;
+	public String getWcolor() {
+		return wcolor;
+	}
+	public void setWcolor(String wcolor) {
+		this.wcolor = wcolor;
+	}
 	public String getWemail() {
 		return wemail;
 	}

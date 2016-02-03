@@ -14,7 +14,7 @@
   </select>
    <insert id="insert">
         INSERT INTO MEMBERS(date1, date2, wcontent, wcategory, wpic, wsubject)
-        VALUES(#{date1},#{date2},#{wcontent},#{wcategory},#{wpic},#{wsubject})
+        VALUES(#{date1},#{date2},#{wcontent},#{wcategory},#{wpic},#{wsubject},#{wcolor})
      </insert> 
      <update id="update">      
         UPDATE MEMBERS SET date2 = #{date2} WHERE email=#{email}     

@@ -20,6 +20,26 @@
 
 <link rel="stylesheet"
 	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css" />
+
+
+<style>
+#content.on {
+	height: 400px;
+}
+
+#content.off {
+	height: 0px;
+}
+
+#list.on {
+	height: 530px;
+}
+
+#list.off {
+	height: 130px;
+}
+</style>
+
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 <script
@@ -35,6 +55,7 @@
 			dlg.style.width = "400px";
 			dlg.style.height = "400px";
 			dlg.style.position = "fixed";
+			dlg.style.zIndex = "9999";
 			dlg.style.background = "white";
 			dlg.style.bottom = "180px";
 			dlg.style.right = "90px";
@@ -67,31 +88,24 @@
 						var request = new XMLHttpRequest();
 						var b = document.querySelectorAll("#b");
 						var lists = document.querySelectorAll("#list");
-
-						function liClick(event) {
-							
+						function liClick(event) {							
 							event.target.parentNode
 									.querySelector("div:last-child").style.height = "400px";
 							event.target.parentNode.style.height = "530px";
 							function liClick(event) {
 								event.target.parentNode
 								.querySelector("div:last-child").style.height = "130px";
-						event.target.parentNode.style.height = "0px";
-								
+						event.target.parentNode.style.height = "0px";								
 							}
-
 						}
 						for (var i = 0; i < b.length; i++) {
 							b[i].onclick = liClick;
 						}
-
 					}) ;*/
 	var wikiModule = angular.module("wiki", [ "ngAnimate" ]);
-
-					wikiModule.controller('wiki-controller', function($scope, $http) {
+	wikiModule.controller('wiki-controller', function($scope, $http) {
+		$scope.test ="blue";
 		$scope.list = null;
-		$scope.test=false;
-		
 		$http({
 			method : 'GET',
 			url : '/Aqua/fake/wikiJSON'
@@ -99,11 +113,10 @@
 			$scope.list = response.data;
 		}, function errorCallback(response) {
 			alert("실패");
-		});
-
-		$scope.toggleWiki = function() {
-		};
-
+		});		
+			
+		var a = document.querySelectorAll(selectors)
+		if()
 	});
 </script>
 </head>
@@ -139,17 +152,19 @@
 				</div>
 				<div id="fake"></div>
 				<div id="down">
-						<div id="list" ng-repeat="w in list" ng-init="a=[]">
-							<div id="a">
-								<img
-									src="${pageContext.request.contextPath}/content/wiki/images/{{w.wcategory}}"
-									style="position: relative; left: 10px; top: 15px; text-align: center; width: 100px; height: 100px" />
-							</div>
-						<div id="b" ng-click="a[$index]=!a[$index]" ng-bind="w.wsubject">{{$index}}</div>
-						<div id="c"></div>
-							<div id="d"></div>
-							<div id="content" ng-show="a[$index]" ng-bind="w.wcontent">$index</div>
+					<div id="list" ng-repeat="w in list"
+						ng-init="a" ng-class="{on:a[$index], off:!a[$index]}"  ng-style={background:'{{test}}'}>
+						<div id="a"  name="{{w.wcategory}}" >
+							<img
+								src="${pageContext.request.contextPath}/content/wiki/images/{{w.wcategory}}"
+								style="position: relative; left: 10px; top: 15px; text-align: center; width: 100px; height: 100px" />
 						</div>
+						<div id="b" ng-click="a[$index]=!a[$index]" ng-bind="w.wsubject"></div>
+						<div id="c"></div>
+						<div id="d"></div>
+						<div id="content" ng-show="a[$index]" ng-bind="w.wcontent"
+							ng-class="{on:a[$index], off:!a[$index]}"></div>
+					</div>
 				</div>
 			</div>
 		</div>

@@ -45,6 +45,7 @@
 			dlg.style.width = "400px";
 			dlg.style.height = "400px";
 			dlg.style.position = "fixed";
+			dlg.style.zIndex = "9999";
 			dlg.style.background = "white";
 			dlg.style.bottom = "180px";
 			dlg.style.right = "90px";

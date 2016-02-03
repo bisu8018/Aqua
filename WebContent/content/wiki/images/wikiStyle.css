@@ -226,7 +226,6 @@ footer {
 	
 }
 #list{
-	background: white;
 	width: 800px;
 	height: 130px;
 	position: relative;
@@ -267,10 +266,9 @@ footer {
 	overflow-x: hidden;
 }
 #content{
-	background: white;
-	width: inherit;
-	transition-duration: 1s;
+	width: inherit;	
 	overflow: auto;
-	height: 40px;
 	position: relative;
+	height:0px;
+	transition-duration: 1s;
 }
