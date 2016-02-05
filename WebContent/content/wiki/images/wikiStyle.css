@@ -225,7 +225,7 @@ footer {
 	left: 13px;
 	
 }
-#list{
+.list{
 	width: 800px;
 	height: 130px;
 	position: relative;
@@ -234,13 +234,13 @@ footer {
 	margin-left: 85px;
 	transition-duration: 1s;
 }
-#a{
+.a{
 	height: 130px;
 	width: 15%;
 	float:left;
 	border-right: 5px solid black; 
 }
-#b{
+.b{
 	height: 100px;
 	width: 64%;
 	float:left;
@@ -250,14 +250,14 @@ footer {
 	left: 40px;
 	padding-top: 30px; 
 }
-#c{
+.c{
 	height: 130px;
 	width: 10%;
 	float:left;
 	background: url("write.png") no-repeat 20px 42px;
 	background-size: 47px 45px;
 }
-#d{
+.d{
 	height: 130px;
 	width: 10%;
 	float:left;
@@ -265,7 +265,7 @@ footer {
 	background-size: 52px 50px;
 	overflow-x: hidden;
 }
-#content{
+.content{
 	width: inherit;	
 	overflow: auto;
 	position: relative;

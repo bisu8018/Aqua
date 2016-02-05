@@ -23,19 +23,19 @@
 
 
 <style>
-#content.on {
+.content.on {
 	height: 400px;
 }
 
-#content.off {
+.content.off {
 	height: 0px;
 }
 
-#list.on {
+.list.on {
 	height: 530px;
 }
 
-#list.off {
+.list.off {
 	height: 130px;
 }
 </style>
@@ -104,8 +104,7 @@
 					}) ;*/
 	var wikiModule = angular.module("wiki", [ "ngAnimate" ]);
 	wikiModule.controller('wiki-controller', function($scope, $http) {
-		$scope.test ="blue";
-		$scope.list = null;
+		//$scope.test = "blue";
 		$http({
 			method : 'GET',
 			url : '/Aqua/fake/wikiJSON'
@@ -113,10 +112,11 @@
 			$scope.list = response.data;
 		}, function errorCallback(response) {
 			alert("실패");
-		});		
-			
-		var a = document.querySelectorAll(selectors)
-		if()
+		});
+		
+		
+		
+		
 	});
 </script>
 </head>
@@ -152,17 +152,21 @@
 				</div>
 				<div id="fake"></div>
 				<div id="down">
-					<div id="list" ng-repeat="w in list"
-						ng-init="a" ng-class="{on:a[$index], off:!a[$index]}"  ng-style={background:'{{test}}'}>
-						<div id="a"  name="{{w.wcategory}}" >
+					<div class="list" ng-repeat="w in list"
+						ng-class="{on:a[$index], off:!a[$index]}" 
+						ng-style="w.wcategory == 'feed.png' && {'background-color': '#FF00DD'} ||
+                 				 w.wcategory == 'bowl.png' && {'background-color': '#0054FF'} ||
+                  				w.wcategory == 'fish.png' && {'background-color': '#ABF200'}">
+						<div class="a" data-cate="w.wcategory">
 							<img
 								src="${pageContext.request.contextPath}/content/wiki/images/{{w.wcategory}}"
-								style="position: relative; left: 10px; top: 15px; text-align: center; width: 100px; height: 100px" />
+								style="position: relative; left: 10px; top: 15px; text-align: center; width: 100px; height: 100px;" />
 						</div>
-						<div id="b" ng-click="a[$index]=!a[$index]" ng-bind="w.wsubject"></div>
-						<div id="c"></div>
-						<div id="d"></div>
-						<div id="content" ng-show="a[$index]" ng-bind="w.wcontent"
+						<div class="b" ng-click="a[$index]=!a[$index]"
+							ng-bind="w.wsubject"></div>
+						<div class="c"></div>
+						<div class="d"></div>
+						<div class="content" ng-show="a[$index]" ng-bind="w.wcontent"
 							ng-class="{on:a[$index], off:!a[$index]}"></div>
 					</div>
 				</div>

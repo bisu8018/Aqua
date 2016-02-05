@@ -88,7 +88,6 @@ public class MenuController {
 		builder.append("[");
 		for (int i = 0; i < fList2.size(); i++) {
 			Fish f = fList2.get(i);
-
 			if (i == fList2.size() - 1)
 				builder.append(String.format("{'name':'%s' , 'lev':'%d' , 'type':'%s' , 'fpic':'%s'}", f.getName(),
 						f.getLev(), f.getType(), f.getFpic()));
@@ -96,7 +95,6 @@ public class MenuController {
 				builder.append(String.format("{'name':'%s' , 'lev':'%d' , 'type':'%s' , 'fpic':'%s'},", f.getName(),
 						f.getLev(), f.getType(), f.getFpic()));
 		}
-
 		builder.append("],");
 		
 		
@@ -171,9 +169,9 @@ public class MenuController {
 
 	 
 
-	      List<Wiki> list = wikiDao.getWiki(1, "wsubject", "");
+	      List<Wiki> wList = wikiDao.getWiki(1, "wsubject", "");
 	      Gson gson = new Gson();
-	      out.println(gson.toJson(list));
+	      out.println(gson.toJson(wList));
 	}
 
 }

@@ -22,9 +22,12 @@
 	href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 <script src="//code.jquery.com/jquery-1.10.2.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script type="text/javascript" src="/Aqua/content/home/js/menu-icon.js"></script>
-<script>var status = ('${pageContext.request.userPrincipal.name}');</script>
+<script>
+	var status = ('${pageContext.request.userPrincipal.name}');
+</script>
 <script>
 	window.onload = function() {
 		var tab = document.querySelector("#tab");
@@ -63,28 +66,60 @@
 	};
 </script>
 <script>
-	window.addEventListener("load", function() {
-		var request = new XMLHttpRequest();
-		var lis = document.querySelectorAll(".aaa");
-		function liClick(event) {
+	window
+			.addEventListener(
+					"load",
+					function() {
+						var request = new XMLHttpRequest();
+						var lis = document.querySelectorAll(".aaa");
+						var status = false;
+						function liClick(event) {
 
-			event.target.style.background = "blue";
-			event.target.style.opacity = 0.5;
+							event.target.style.background = "blue";
+							event.target.style.opacity = 0.5;
 
-			request.open("GET", "bowl2?lev=" + event.target.dataset.lev, true);
-			request.send();
+							request.open("GET", "bowl2?lev="
+									+ event.target.dataset.lev, true);
+							request.send();
 
-			request.onreadystatechange = function() {
+							request.onreadystatechange = function() {
 
-				if (request.readyState == 4) {
-					var datas = eval(request.responseText);
-				}
-			}
-		}
-		for (var i = 0; i < lis.length; i++) {
-			lis[i].onclick = liClick;
-		}
-	});
+								if (request.readyState == 4) {
+									var datas = eval(request.responseText);
+									if (status == false) {
+										for (var i = 0; i < lis.length; i++) {
+											if (data[0][0]
+													|| data[0][1]
+													|| data[0][2] != '${list[i].dataset.name}') {
+												lis[i].style.opacity = 0;
+												lis[i].style.position = "absolute";
+												status = true;
+											}
+
+										}
+									}
+									;
+									if (status == true) {
+										for (var i = 0; i < lis.length; i++) {
+											if (data[0][0]
+													|| data[0][1]
+													|| data[0][2] != '${list[i].dataset.name}') {
+												lis[i].style.opacity = 1;
+												lis[i].style.position = "absolute";
+												status = true;
+											}
+
+										}
+
+									}
+
+								}
+							};
+						}
+						for (var i = 0; i < lis.length; i++) {
+							lis[i].onclick = liClick;
+						}
+					});
 </script>
 <body id="abody">
 	<div id="ribon"></div>
@@ -122,7 +157,7 @@
 							<ul>
 								<c:forEach var="f" items="${list}">
 									<c:if test="${f.type=='냉수어'}">
-										<li class="aaa" data-lev="${f.lev}">${f.name}</li>
+										<li class="aaa" data-name="${f.name}" data-lev="${f.lev}">${f.name}</li>
 									</c:if>
 								</c:forEach>
 							</ul>
@@ -133,7 +168,7 @@
 							<ul>
 								<c:forEach var="f" items="${list}">
 									<c:if test="${f.type=='해수어'}">
-										<li class="aaa" data-lev="${f.lev}">${f.name}</li>
+										<li class="aaa" data-name="${f.name}" data-lev="${f.lev}">${f.name}</li>
 									</c:if>
 								</c:forEach>
 							</ul>
@@ -144,7 +179,7 @@
 							<ul>
 								<c:forEach var="f" items="${list}">
 									<c:if test="${f.type=='열대어'}">
-										<li class="aaa" data-lev="${f.lev}">${f.name}</li>
+										<li class="aaa" data-name="${f.name}" data-lev="${f.lev}">${f.name}</li>
 									</c:if>
 								</c:forEach>
 							</ul>
